@@ -30,7 +30,7 @@ RUN yes | JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64 ${ANDROID_SDK_ROOT}/c
     "platforms;android-33" \
     "platforms;android-34" \
     "platforms;android-35" \
-    "cmake;3.22.1"
+    "cmake;4.0.2"
 
 RUN flutter precache
 
