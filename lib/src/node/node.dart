@@ -26,8 +26,8 @@ class Node extends HiveObject {
   String? password;
 
   Future<bool> isOnline() async {
-    final resBody = await sendRPCRequest('get_info');
-    return !(resBody['result']['offline'] as bool);
+    final result = (await sendRPCRequest('get_info'))['result'];
+    return result is Map && result['status'] == 'OK';
   }
 
   Future<Map<String, dynamic>> sendRPCRequest(String method,

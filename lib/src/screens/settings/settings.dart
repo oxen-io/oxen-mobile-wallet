@@ -169,7 +169,7 @@ class SettingsFormState extends State<SettingsForm> {
       SettingsItem(
           title: t.settings_allow_biometric_authentication,
           attribute: Attributes.switcher),
-      SettingsItem(title: t.settings_dark_mode, attribute: Attributes.switcher),
+      // SettingsItem(title: t.settings_dark_mode, attribute: Attributes.switcher),
       SettingsItem(title: t.settings_support, attribute: Attributes.header),
       SettingsItem(
           onTaped: () => _launchUrl(_emailUrl),
