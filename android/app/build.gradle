@@ -36,7 +36,7 @@ if (keystorePropertiesFile.exists()) {
 android {
     compileSdkVersion 35
     namespace = "io.oxen.wallet"
-    ndkVersion = "28.0.13004108"
+    ndkVersion = "28.0.12433566"
 
 
     compileOptions {
@@ -56,15 +56,15 @@ android {
     defaultConfig {
         applicationId "io.oxen.wallet"
         minSdkVersion 23
-        targetSdkVersion 31
+        targetSdkVersion 34
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
 
         externalNativeBuild {
             cmake {
-                cppFlags "-std=c++17"
-                arguments '-DANDROID_STL=c++_shared -DCMAKE_ANDROID_STL_TYPE=c++_shared -fPIC'
-                version "3.18.0+"
+                cppFlags "-std=c++20"
+                arguments '-DANDROID_STL=c++_shared', '-DCMAKE_ANDROID_STL_TYPE=c++_shared -fPIC'
+                version "3.28.0+"
             }
         }
 
@@ -99,6 +99,10 @@ android {
             minifyEnabled true
         }
     }
+}
+
+kotlin {
+    jvmToolchain(17)
 }
 
 flutter {

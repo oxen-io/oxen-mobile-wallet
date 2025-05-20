@@ -14,22 +14,10 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
 
 
 class OxenCoinPlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var channel : MethodChannel
-
-    companion object {
-        // val oxenApi = OxenApi()
-        val main = Handler(Looper.getMainLooper())
-
-        @JvmStatic
-        fun registerWith(registrar: Registrar) {
-            val channel = MethodChannel(registrar.messenger(), "oxen_coin")
-            channel.setMethodCallHandler(OxenCoinPlugin())
-        }
-    }
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
         channel = MethodChannel(flutterPluginBinding.getFlutterEngine().getDartExecutor(), "oxen_coin")
@@ -41,6 +29,5 @@ class OxenCoinPlugin : FlutterPlugin, MethodCallHandler {
     }
 
     override fun onMethodCall(call: MethodCall, result: Result) {
-        // oxenApi.load()
     }
 }

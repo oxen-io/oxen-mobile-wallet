@@ -1,7 +1,7 @@
 import 'dart:ffi';
 import 'package:ffi/ffi.dart';
 
-class StakeRowPointer extends Struct {
+final class StakeRowPointer extends Struct {
   external Pointer<Utf8> _serviceNodeKey;
 
   @Uint64()
@@ -24,12 +24,12 @@ class StakeRowPointer extends Struct {
 }
 
 class StakeRow {
-  StakeRow(StakeRowPointer pointer) :
-    amount = pointer.amount,
-    serviceNodeKey = pointer.serviceNodeKey,
-    unlockHeight = pointer.unlockHeight,
-    awaiting = pointer.awaiting,
-    decommissioned = pointer.decommissioned;
+  StakeRow(StakeRowPointer pointer)
+      : amount = pointer.amount,
+        serviceNodeKey = pointer.serviceNodeKey,
+        unlockHeight = pointer.unlockHeight,
+        awaiting = pointer.awaiting,
+        decommissioned = pointer.decommissioned;
 
   int amount;
   String serviceNodeKey;
