@@ -25,8 +25,7 @@ class UserService {
     final key = generateStoreKeyFor(key: SecretStoreKey.pinCodePassword);
     final sharedPreferences = await SharedPreferences.getInstance();
     final walletName = sharedPreferences.getString('current_wallet_name');
-    if (!(walletName?.isNotEmpty ?? false))
-      return false;
+    if (!(walletName?.isNotEmpty ?? false)) return false;
 
     String? password;
     try {
@@ -40,10 +39,14 @@ class UserService {
   Future<bool> authenticate(String pin) async {
     final key = generateStoreKeyFor(key: SecretStoreKey.pinCodePassword);
     final encodedPin = await secureStorage.read(key: key);
-    if (encodedPin == null)
-      return false;
-    final decodedPin = decodedPinCode(pin: encodedPin);
+    if (encodedPin == null) return false;
 
-    return decodedPin == pin;
+    try {
+      final decodedPin = decodedPinCode(pin: encodedPin);
+      return decodedPin == pin;
+    } catch (e) {
+      print(e);
+      return false;
+    }
   }
 }

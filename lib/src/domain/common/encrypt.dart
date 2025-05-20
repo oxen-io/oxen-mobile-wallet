@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:encrypt/encrypt.dart';
 import 'package:oxen_wallet/.secrets.g.dart' as secrets;
 
@@ -7,15 +9,18 @@ String encrypt({required String source, required String key, int keyLength = 16}
   final encrypter = Encrypter(AES(_key));
   final encrypted = encrypter.encrypt(source, iv: iv);
 
-  return encrypted.base64;
+  return Base64Encoder().convert(encrypted.bytes.toList()..addAll(iv.bytes));
 }
 
 String decrypt({required String source, required String key, int keyLength = 16}) {
   final _key = Key.fromUtf8(key);
-  final iv = IV.fromLength(keyLength);
   final encrypter = Encrypter(AES(_key));
-  final decrypted = encrypter.decrypt64(source, iv: iv);
 
+  final contentAndIv = Base64Decoder().convert(source);
+  final iv = IV(contentAndIv.sublist(contentAndIv.length - keyLength));
+  final content = contentAndIv.sublist(0, contentAndIv.length - keyLength);
+
+  final decrypted = encrypter.decrypt(Encrypted(content), iv: iv);
   return decrypted;
 }
 
