@@ -24,7 +24,7 @@ publish_to: none
 # (Gee thanks Apple for your broken crap.)  This means when updating this version you also need to
 # change 6 lines in ios/Runner.xcodeproj/project.pbxproj (Three each of: CURRENT_PROJECT_VERSION,
 # which should be the build number; and MARKETING_VERSION which should be the wallet version.
-version: 1.11.0+16
+version: 1.11.0+2016
 
 # keytool -genkey -v -keystore c:\Users\konst\key.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias key
 
@@ -67,6 +67,8 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+
+  # Must stay at 5.0.1 due to a bug in PIN encryption. Updating it risks losing PIN access.
   encrypt: 5.0.1
   basic_utils: ^5.2.2
   json_annotation: ^4.7.0
