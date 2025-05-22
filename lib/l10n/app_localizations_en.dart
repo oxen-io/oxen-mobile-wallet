@@ -15,7 +15,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get first_wallet_text => 'Awesome wallet\nfor Oxen';
 
   @override
-  String get please_make_selection => 'Please make selection below to\ncreate or recover your wallet.';
+  String get please_make_selection =>
+      'Please make selection below to\ncreate or recover your wallet.';
 
   @override
   String get create_new => 'Create new';
@@ -63,7 +64,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remove_contact => 'Remove Contact';
 
   @override
-  String get remove_contact_confirm => 'Are you sure that you want to remove the selected contact?';
+  String get remove_contact_confirm =>
+      'Are you sure that you want to remove the selected contact?';
 
   @override
   String get authenticated => 'Authenticated';
@@ -85,7 +87,8 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String get please_try_to_connect_to_another_node => 'Please try to connect to another node';
+  String get please_try_to_connect_to_another_node =>
+      'Please try to connect to another node';
 
   @override
   String get oxen_hidden => 'OXEN Hidden';
@@ -238,10 +241,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get continue_text => 'Continue';
 
   @override
-  String get remove_wallet_confirmation => 'Are you sure you want to delete this wallet?';
+  String get remove_wallet_confirmation =>
+      'Are you sure you want to delete this wallet?';
 
   @override
-  String get dangerzone_remove_wallet_warning => 'If you have not saved your seed phrase then any funds sent to this wallet will be lost forever!';
+  String get dangerzone_remove_wallet_warning =>
+      'If you have not saved your seed phrase then any funds sent to this wallet will be lost forever!';
 
   @override
   String get node_new => 'New Node';
@@ -265,7 +270,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get node_reset_settings_title => 'Reset settings';
 
   @override
-  String get nodes_list_reset_to_default_message => 'Are you sure that you want to reset settings to default?';
+  String get nodes_list_reset_to_default_message =>
+      'Are you sure that you want to reset settings to default?';
 
   @override
   String change_current_node(Object node) {
@@ -279,7 +285,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get remove_node => 'Remove node';
 
   @override
-  String get remove_node_message => 'Are you sure that you want to remove selected node?';
+  String get remove_node_message =>
+      'Are you sure that you want to remove selected node?';
 
   @override
   String get remove => 'Remove';
@@ -308,7 +315,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restore_title_from_seed_keys => 'Restore from seed/keys';
 
   @override
-  String get restore_description_from_seed_keys => 'Get back your wallet from seed/keys that you\'ve saved to secure place';
+  String get restore_description_from_seed_keys =>
+      'Get back your wallet from seed/keys that you\'ve saved to secure place';
 
   @override
   String get restore_next => 'Next';
@@ -317,7 +325,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restore_title_from_backup => 'Restore from a back-up file';
 
   @override
-  String get restore_description_from_backup => 'You can restore the whole Oxen Wallet app from your back-up file';
+  String get restore_description_from_backup =>
+      'You can restore the whole Oxen Wallet app from your back-up file';
 
   @override
   String get restore_seed_keys_restore => 'Seed/Keys Restore';
@@ -326,13 +335,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get restore_title_from_seed => 'Restore from seed';
 
   @override
-  String get restore_description_from_seed => 'Restore your wallet from the 25 word combination code';
+  String get restore_description_from_seed =>
+      'Restore your wallet from the 25 word combination code';
 
   @override
   String get restore_title_from_keys => 'Restore from keys';
 
   @override
-  String get restore_description_from_keys => 'Restore your wallet from generated keystrokes saved from your private keys';
+  String get restore_description_from_keys =>
+      'Restore your wallet from generated keystrokes saved from your private keys';
 
   @override
   String get restore_wallet_name => 'Wallet name';
@@ -439,7 +450,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get stake_more => 'Stake more';
 
   @override
-  String get registration_taking_migration_oxen_to_session_token => 'Registration and staking into new Service Nodes is disabled due to the ongoing migration of Oxen to Session Token. Read more here [Oxen IO website]';
+  String get registration_taking_migration_oxen_to_session_token =>
+      'Registration and staking into new Service Nodes is disabled due to the ongoing migration of Oxen to Session Token. Read more here [Oxen IO website]';
 
   @override
   String get nothing_staked => 'Nothing staked yet';
@@ -486,7 +498,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings_show_pending => 'Show pending SN rewards';
 
   @override
-  String get settings_full_incl_pending => 'Include pending rewards in full balance';
+  String get settings_full_incl_pending =>
+      'Include pending rewards in full balance';
 
   @override
   String get settings_balance_detail => 'Decimals';
@@ -510,7 +523,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get settings_change_language => 'Change language';
 
   @override
-  String get settings_allow_biometric_authentication => 'Allow biometric authentication';
+  String get settings_allow_biometric_authentication =>
+      'Allow biometric authentication';
 
   @override
   String get settings_dark_mode => 'Dark mode';
@@ -680,19 +694,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_text_address => 'Invalid OXEN wallet address!';
 
   @override
-  String get error_text_node_address => 'Please enter a valid hostname or IP address';
+  String get error_text_node_address =>
+      'Please enter a valid hostname or IP address';
 
   @override
-  String get error_text_node_port => 'Node port can only contain numbers between 1 and 65535';
+  String get error_text_node_port =>
+      'Node port can only contain numbers between 1 and 65535';
 
   @override
-  String get error_text_payment_id => 'Payment ID can only contain from 16 to 64 chars in hex';
+  String get error_text_payment_id =>
+      'Payment ID can only contain from 16 to 64 chars in hex';
 
   @override
-  String get error_text_oxen => 'OXEN value can\'t exceed available balance.\nThe number of fraction digits must be less or equal to 9';
+  String get error_text_oxen =>
+      'OXEN value can\'t exceed available balance.\nThe number of fraction digits must be less or equal to 9';
 
   @override
-  String get error_text_fiat => 'Value of amount can\'t exceed available balance.\nThe number of fraction digits must be less or equal to 2';
+  String get error_text_fiat =>
+      'Value of amount can\'t exceed available balance.\nThe number of fraction digits must be less or equal to 2';
 
   @override
   String get error_text_amount => 'Amount can only contain numbers';
@@ -701,10 +720,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get error_text_keys => 'Wallet keys can only contain 64 chars in hex';
 
   @override
-  String get error_text_crypto_currency => 'The number of fraction digits\nmust be less or equal to 9';
+  String get error_text_crypto_currency =>
+      'The number of fraction digits\nmust be less or equal to 9';
 
   @override
-  String get error_text_service_node => 'A Service Node key can only contain 64 chars in hex';
+  String get error_text_service_node =>
+      'A Service Node key can only contain 64 chars in hex';
 
   @override
   String auth_store_banned_for(Object mins) {
@@ -715,7 +736,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get auth_store_incorrect_password => 'Wrong PIN';
 
   @override
-  String get wallet_restoration_store_incorrect_seed_length => 'Incorrect seed length';
+  String get wallet_restoration_store_incorrect_seed_length =>
+      'Incorrect seed length';
 
   @override
   String sync_status_synchronizing(Object currHeight, Object targetHeight) {
@@ -773,7 +795,8 @@ class AppLocalizationsEn extends AppLocalizations {
   String get paste => 'Paste';
 
   @override
-  String get restore_from_seed_placeholder => 'Please enter or paste your seed here';
+  String get restore_from_seed_placeholder =>
+      'Please enter or paste your seed here';
 
   @override
   String get add_new_word => 'Add new word';

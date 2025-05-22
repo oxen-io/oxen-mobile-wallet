@@ -40,6 +40,6 @@ class Themes {
       dividerTheme:
           DividerThemeData(color: PaletteDark.darkThemeGreyWithOpacity),
       cardColor: PaletteDark.darkThemeMidGrey,
-      cardTheme: CardTheme(color: PaletteDark.darkThemeGrey),
+      cardTheme: CardThemeData(color: PaletteDark.darkThemeGrey),
       primaryIconTheme: IconThemeData(color: PaletteDark.darkThemeViolet));
 }

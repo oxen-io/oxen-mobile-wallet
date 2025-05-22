@@ -15,7 +15,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get first_wallet_text => 'Das tolle Wallet\nfür Oxen';
 
   @override
-  String get please_make_selection => 'Bitte treffen Sie unten eine Auswahl zu\nErstellen oder Wiederherstellen Ihres Wallets.';
+  String get please_make_selection =>
+      'Bitte treffen Sie unten eine Auswahl zu\nErstellen oder Wiederherstellen Ihres Wallets.';
 
   @override
   String get create_new => 'Neu erstellen';
@@ -63,7 +64,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remove_contact => 'Kontakt entfernen';
 
   @override
-  String get remove_contact_confirm => 'Bist du sicher dass du den ausgewählten Kontakt entfernen möchtest?';
+  String get remove_contact_confirm =>
+      'Bist du sicher dass du den ausgewählten Kontakt entfernen möchtest?';
 
   @override
   String get authenticated => 'Authentifiziert';
@@ -85,7 +87,8 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get please_try_to_connect_to_another_node => 'Bitte versuchen Sie, eine Verbindung zu einem anderen Knoten herzustellen';
+  String get please_try_to_connect_to_another_node =>
+      'Bitte versuchen Sie, eine Verbindung zu einem anderen Knoten herzustellen';
 
   @override
   String get oxen_hidden => 'OXEN versteckt';
@@ -175,7 +178,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get reconnection => 'Wiederverbindung';
 
   @override
-  String get reconnect_alert_text => 'Sind Sie sicher, dass Sie die Verbindung wiederherstellen möchten?';
+  String get reconnect_alert_text =>
+      'Sind Sie sicher, dass Sie die Verbindung wiederherstellen möchten?';
 
   @override
   String get reload_fiat => 'Fiat-Kurs neuladen';
@@ -238,10 +242,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get continue_text => 'Fortsetzen';
 
   @override
-  String get remove_wallet_confirmation => 'Bist du sicher dass du dieses Wallet löschen möchtest?';
+  String get remove_wallet_confirmation =>
+      'Bist du sicher dass du dieses Wallet löschen möchtest?';
 
   @override
-  String get dangerzone_remove_wallet_warning => 'Wenn du deine Seed-Phrase nicht gespeichert hast, wird alles Kapital dass zu diesem Wallet gesendet wurde für immer verloren sein.';
+  String get dangerzone_remove_wallet_warning =>
+      'Wenn du deine Seed-Phrase nicht gespeichert hast, wird alles Kapital dass zu diesem Wallet gesendet wurde für immer verloren sein.';
 
   @override
   String get node_new => 'Neuer Knoten';
@@ -265,7 +271,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get node_reset_settings_title => 'Einstellungen zurücksetzen';
 
   @override
-  String get nodes_list_reset_to_default_message => 'Möchten Sie die Einstellungen wirklich auf die Standardeinstellungen zurücksetzen?';
+  String get nodes_list_reset_to_default_message =>
+      'Möchten Sie die Einstellungen wirklich auf die Standardeinstellungen zurücksetzen?';
 
   @override
   String change_current_node(Object node) {
@@ -279,7 +286,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get remove_node => 'Knoten entfernen';
 
   @override
-  String get remove_node_message => 'Möchten Sie den ausgewählten Knoten wirklich entfernen?';
+  String get remove_node_message =>
+      'Möchten Sie den ausgewählten Knoten wirklich entfernen?';
 
   @override
   String get remove => 'Löschen';
@@ -305,19 +313,23 @@ class AppLocalizationsDe extends AppLocalizations {
   String get restore_restore_wallet => 'Wallet wiederherstellen';
 
   @override
-  String get restore_title_from_seed_keys => 'Vom Seed / Schlüssel wiederherstellen';
+  String get restore_title_from_seed_keys =>
+      'Vom Seed / Schlüssel wiederherstellen';
 
   @override
-  String get restore_description_from_seed_keys => 'Stellen sie Ihr Wallet mit Seed / Schlüsseln, welche Sie an einem sicheren Ort aufbewahrt haben, wieder her';
+  String get restore_description_from_seed_keys =>
+      'Stellen sie Ihr Wallet mit Seed / Schlüsseln, welche Sie an einem sicheren Ort aufbewahrt haben, wieder her';
 
   @override
   String get restore_next => 'Weiter';
 
   @override
-  String get restore_title_from_backup => 'Aus einer Sicherungsdatei wiederherstellen';
+  String get restore_title_from_backup =>
+      'Aus einer Sicherungsdatei wiederherstellen';
 
   @override
-  String get restore_description_from_backup => 'Sie können die gesamte Oxen Wallet-App aus ihrer Sicherungsdatei wiederherstellen.';
+  String get restore_description_from_backup =>
+      'Sie können die gesamte Oxen Wallet-App aus ihrer Sicherungsdatei wiederherstellen.';
 
   @override
   String get restore_seed_keys_restore => 'Seed / Schlüssel wiederherstellen';
@@ -326,13 +338,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get restore_title_from_seed => 'Aus Seed wiederherstellen';
 
   @override
-  String get restore_description_from_seed => 'Stellen Sie Ihr Wallet aus dem 25-Wörter-Kombinationscode';
+  String get restore_description_from_seed =>
+      'Stellen Sie Ihr Wallet aus dem 25-Wörter-Kombinationscode';
 
   @override
   String get restore_title_from_keys => 'Wiederherstellen von Schlüsseln';
 
   @override
-  String get restore_description_from_keys => 'Stellen Sie Ihr Wallet von generiert wieder her Tastenanschläge, die von Ihren privaten Schlüsseln gespeichert wurden';
+  String get restore_description_from_keys =>
+      'Stellen Sie Ihr Wallet von generiert wieder her Tastenanschläge, die von Ihren privaten Schlüsseln gespeichert wurden';
 
   @override
   String get restore_wallet_name => 'Walletname';
@@ -350,7 +364,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get restore_recover => 'Wiederherstellen';
 
   @override
-  String get restore_wallet_restore_description => 'Beschreibung zur Wiederherstellung des Wallets';
+  String get restore_wallet_restore_description =>
+      'Beschreibung zur Wiederherstellung des Wallets';
 
   @override
   String get seed_title => 'Seed';
@@ -439,7 +454,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get stake_more => 'Mehr staken';
 
   @override
-  String get registration_taking_migration_oxen_to_session_token => 'Registration and staking into new Service Nodes is disabled due to the ongoing migration of Oxen to Session Token. Read more here [Oxen IO website]';
+  String get registration_taking_migration_oxen_to_session_token =>
+      'Registration and staking into new Service Nodes is disabled due to the ongoing migration of Oxen to Session Token. Read more here [Oxen IO website]';
 
   @override
   String get nothing_staked => 'Noch nichts gestaked';
@@ -486,7 +502,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settings_show_pending => 'Ausstehende SN rewards anzeigen';
 
   @override
-  String get settings_full_incl_pending => 'Guthaben mit ausstehenden SN rewards anzeigen';
+  String get settings_full_incl_pending =>
+      'Guthaben mit ausstehenden SN rewards anzeigen';
 
   @override
   String get settings_balance_detail => 'Dezimalstellen';
@@ -510,7 +527,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settings_change_language => 'Sprache ändern';
 
   @override
-  String get settings_allow_biometric_authentication => 'Biometrische Authentifizierung';
+  String get settings_allow_biometric_authentication =>
+      'Biometrische Authentifizierung';
 
   @override
   String get settings_dark_mode => 'Dunkler Modus';
@@ -519,7 +537,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get settings_transactions => 'Transaktionen';
 
   @override
-  String get settings_display_on_dashboard_list => 'Anzeige in der Dashboard-Liste';
+  String get settings_display_on_dashboard_list =>
+      'Anzeige in der Dashboard-Liste';
 
   @override
   String get settings_all => 'ALLE';
@@ -657,7 +676,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get widgets_address => 'Adresse';
 
   @override
-  String get widgets_restore_from_blockheight => 'Aus Blockhöhe wiederherstellen';
+  String get widgets_restore_from_blockheight =>
+      'Aus Blockhöhe wiederherstellen';
 
   @override
   String get widgets_restore_from_date => 'Vom Datum wiederherstellen';
@@ -677,34 +697,42 @@ class AppLocalizationsDe extends AppLocalizations {
   String get error_text_empty => 'Kann nicht leer sein';
 
   @override
-  String get error_text_address => 'Die Walletadresse muss dem Typ der Kryptowährung\nentsprechen';
+  String get error_text_address =>
+      'Die Walletadresse muss dem Typ der Kryptowährung\nentsprechen';
 
   @override
   String get error_text_node_address => 'Bitte geben Sie eine IP-Adresse ein';
 
   @override
-  String get error_text_node_port => 'Der Knotenport kann nur Nummern zwischen 0 und 65535 enthalten';
+  String get error_text_node_port =>
+      'Der Knotenport kann nur Nummern zwischen 0 und 65535 enthalten';
 
   @override
-  String get error_text_payment_id => 'Die Zahlungs-ID kann nur 16 bis 64 hexadezimale Zeichen enthalten';
+  String get error_text_payment_id =>
+      'Die Zahlungs-ID kann nur 16 bis 64 hexadezimale Zeichen enthalten';
 
   @override
-  String get error_text_oxen => 'Der OXEN-Wert kann das verfügbare Guthaben nicht überschreiten.\nDie Anzahl der Nachkommastellen muss kleiner oder gleich 9 sein';
+  String get error_text_oxen =>
+      'Der OXEN-Wert kann das verfügbare Guthaben nicht überschreiten.\nDie Anzahl der Nachkommastellen muss kleiner oder gleich 9 sein';
 
   @override
-  String get error_text_fiat => 'Der Wert des Betrags darf den verfügbaren Kontostand nicht überschreiten.\nDie Anzahl der Nachkommastellen muss kleiner oder gleich 2 sein';
+  String get error_text_fiat =>
+      'Der Wert des Betrags darf den verfügbaren Kontostand nicht überschreiten.\nDie Anzahl der Nachkommastellen muss kleiner oder gleich 2 sein';
 
   @override
   String get error_text_amount => 'Betrag kann nur Zahlen enthalten';
 
   @override
-  String get error_text_keys => 'Walletschlüssel können nur 64 hexadezimale Zeichen enthalten';
+  String get error_text_keys =>
+      'Walletschlüssel können nur 64 hexadezimale Zeichen enthalten';
 
   @override
-  String get error_text_crypto_currency => 'Die Anzahl der Nachkommastellen\nmuss kleiner oder gleich 9 sein.';
+  String get error_text_crypto_currency =>
+      'Die Anzahl der Nachkommastellen\nmuss kleiner oder gleich 9 sein.';
 
   @override
-  String get error_text_service_node => 'Service Node Schlüssel können nur 64 hexadezimale Zeichen enthalten';
+  String get error_text_service_node =>
+      'Service Node Schlüssel können nur 64 hexadezimale Zeichen enthalten';
 
   @override
   String auth_store_banned_for(Object mins) {
@@ -715,7 +743,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get auth_store_incorrect_password => 'Falsches PIN';
 
   @override
-  String get wallet_restoration_store_incorrect_seed_length => 'Falsche Seed-länge';
+  String get wallet_restoration_store_incorrect_seed_length =>
+      'Falsche Seed-länge';
 
   @override
   String sync_status_synchronizing(Object currHeight, Object targetHeight) {
@@ -773,7 +802,8 @@ class AppLocalizationsDe extends AppLocalizations {
   String get paste => 'Einfügen';
 
   @override
-  String get restore_from_seed_placeholder => 'Bitte geben Sie hier Ihren Code ein';
+  String get restore_from_seed_placeholder =>
+      'Bitte geben Sie hier Ihren Code ein';
 
   @override
   String get add_new_word => 'Neues Wort hinzufügen';
@@ -787,7 +817,8 @@ class AppLocalizationsDe extends AppLocalizations {
   }
 
   @override
-  String get biometric_auth_reason => 'Scannen Sie Ihren Fingerabdruck zur Authentifizierung';
+  String get biometric_auth_reason =>
+      'Scannen Sie Ihren Fingerabdruck zur Authentifizierung';
 
   @override
   String version(Object currentVersion) {
