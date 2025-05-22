@@ -83,6 +83,7 @@ android/app/.externalNativeBuild/
 **/*.g.dart
 
 android/key.properties
+android/oxen-android-wallet.keystore
 
 **/tool/.secrets-prod.json
 **/lib/.secrets.g.dart
