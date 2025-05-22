@@ -2,7 +2,7 @@ import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
 
-class TransactionInfoRow extends Struct {
+final class TransactionInfoRow extends Struct {
   @Uint64()
   external int amount;
 
@@ -39,7 +39,11 @@ class TransactionInfoRow extends Struct {
 
   int getDatetime() => datetime;
   int getAmount() => amount >= 0 ? amount : -amount;
-  int? getTransferAmount() => transferAmount > 0 ? transferAmount : transferAmount < 0 ? -amount : null;
+  int? getTransferAmount() => transferAmount > 0
+      ? transferAmount
+      : transferAmount < 0
+          ? -amount
+          : null;
   int getFee() => fee >= 0 ? fee : -fee;
   bool getIsPending() => isPending != 0;
   String getHash() => hash.toDartString();

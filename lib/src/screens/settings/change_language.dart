@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oxen_wallet/l10n.dart';
+import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/stores/settings/settings_store.dart';
 import 'package:oxen_wallet/src/widgets/oxen_dialog.dart';
 import 'package:provider/provider.dart';
@@ -15,15 +17,15 @@ class ChangeLanguage extends BasePage {
     final settingsStore = Provider.of<SettingsStore>(context);
     final langNotifier = Provider.of<LanguageNotifier>(context);
 
-    final currentColor = Theme.of(context).selectedRowColor;
-    final notCurrentColor =
-        Theme.of(context).accentTextTheme.subtitle1?.backgroundColor;
+    final currentColor = OxenPalette.tealWithOpacity;
+    final notCurrentColor = PaletteDark.darkThemeMidGrey;
 
     final t = tr(context);
 
     final languages = <LanguageName>[
-        LanguageName('', t.change_language_system_default),
-        ...languageNames];
+      LanguageName('', t.change_language_system_default),
+      ...languageNames
+    ];
 
     return Container(
         padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -31,7 +33,8 @@ class ChangeLanguage extends BasePage {
           itemCount: languages.length,
           itemBuilder: (BuildContext context, int index) {
             final lang = languages[index];
-            final isCurrent = lang.code == (settingsStore.languageOverride ?? '');
+            final isCurrent =
+                lang.code == (settingsStore.languageOverride ?? '');
 
             return Container(
               margin: EdgeInsets.only(top: 10.0, bottom: 10.0),
@@ -41,8 +44,8 @@ class ChangeLanguage extends BasePage {
                   lang.name,
                   style: TextStyle(
                       fontSize: 16.0,
-                      color: Theme.of(context).primaryTextTheme.headline6?.color
-                  ),
+                      color:
+                          Theme.of(context).primaryTextTheme.headline6?.color),
                 ),
                 onTap: () async {
                   if (!isCurrent) {
@@ -51,7 +54,8 @@ class ChangeLanguage extends BasePage {
                       t.change_language,
                       t.change_language_to(lang.name),
                       onPressed: (context) {
-                        settingsStore.saveLanguageOverride(lang.code == '' ? null : lang.code);
+                        settingsStore.saveLanguageOverride(
+                            lang.code == '' ? null : lang.code);
                         langNotifier.trigger();
                         Navigator.of(context).pop();
                       },

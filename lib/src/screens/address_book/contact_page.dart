@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oxen_wallet/l10n.dart';
+import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/domain/common/contact.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/stores/address_book/address_book_store.dart';
@@ -8,6 +9,7 @@ import 'package:oxen_wallet/src/widgets/oxen_text_field.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
 import 'package:oxen_wallet/src/widgets/scollable_with_bottom_section.dart';
 import 'package:provider/provider.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class ContactPage extends BasePage {
   ContactPage({this.contact});
@@ -65,7 +67,8 @@ class ContactFormState extends State<ContactForm> {
                 hintText: tr(context).contact_name,
                 controller: _contactNameController,
                 validator: (value) {
-                  addressBookStore.validateContactName(value ?? '', tr(context));
+                  addressBookStore.validateContactName(
+                      value ?? '', tr(context));
                   return addressBookStore.errorMessage;
                 },
               ),
@@ -93,10 +96,8 @@ class ContactFormState extends State<ContactForm> {
                     });
                   },
                   text: tr(context).reset,
-                  color:
-                      Theme.of(context).accentTextTheme.button?.backgroundColor,
-                  borderColor:
-                      Theme.of(context).accentTextTheme.button?.decorationColor),
+                  color: PaletteDark.darkThemeIndigoButton,
+                  borderColor: PaletteDark.darkThemeIndigoButtonBorder),
             ),
             SizedBox(width: 20),
             Expanded(
@@ -115,7 +116,8 @@ class ContactFormState extends State<ContactForm> {
                           widget.contact!.name = _contactNameController.text;
                           widget.contact!.address = _addressController.text;
 
-                          await addressBookStore.update(contact: widget.contact!);
+                          await addressBookStore.update(
+                              contact: widget.contact!);
                         }
                         Navigator.pop(context);
                       } catch (e) {

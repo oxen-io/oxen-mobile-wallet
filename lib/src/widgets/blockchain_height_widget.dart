@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:oxen_wallet/l10n.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/wallet/oxen/get_height_by_date.dart';
 import 'package:oxen_wallet/palette.dart';
 
@@ -19,8 +20,8 @@ class BlockchainHeightState extends State<BlockchainHeightWidget> {
 
   @override
   void initState() {
-    restoreHeightController.addListener(
-            () => _height = int.parse(restoreHeightController.text));
+    restoreHeightController
+        .addListener(() => _height = int.parse(restoreHeightController.text));
     super.initState();
   }
 
@@ -43,8 +44,8 @@ class BlockchainHeightState extends State<BlockchainHeightWidget> {
                     hintStyle: TextStyle(color: Theme.of(context).hintColor),
                     hintText: tr(context).widgets_restore_from_blockheight,
                     focusedBorder: UnderlineInputBorder(
-                        borderSide: BorderSide(
-                            color: OxenPalette.teal, width: 2.0)),
+                        borderSide:
+                            BorderSide(color: OxenPalette.teal, width: 2.0)),
                     enabledBorder: UnderlineInputBorder(
                         borderSide: BorderSide(
                             color: Theme.of(context).focusColor, width: 1.0))),
@@ -77,8 +78,7 @@ class BlockchainHeightState extends State<BlockchainHeightWidget> {
                         hintText: tr(context).widgets_restore_from_date,
                         focusedBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
-                                color: OxenPalette.teal,
-                                width: 2.0)),
+                                color: OxenPalette.teal, width: 2.0)),
                         enabledBorder: UnderlineInputBorder(
                             borderSide: BorderSide(
                                 color: Theme.of(context).focusColor,

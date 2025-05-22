@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/widgets/nav/nav_list_trailing.dart';
 
 class NavListArrow extends StatelessWidget {

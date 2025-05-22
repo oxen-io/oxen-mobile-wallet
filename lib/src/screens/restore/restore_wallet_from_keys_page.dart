@@ -14,6 +14,7 @@ import 'package:oxen_wallet/src/widgets/blockchain_height_widget.dart';
 import 'package:oxen_wallet/src/widgets/scollable_with_bottom_section.dart';
 import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/stores/seed_language/seed_language_store.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class RestoreWalletFromKeysPage extends BasePage {
   RestoreWalletFromKeysPage(

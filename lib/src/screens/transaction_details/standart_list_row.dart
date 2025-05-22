@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class StandartListRow extends StatelessWidget {
   StandartListRow({required this.title, required this.value});

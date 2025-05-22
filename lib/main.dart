@@ -32,7 +32,6 @@ import 'package:oxen_wallet/src/domain/common/fiat_currency.dart';
 import 'package:oxen_wallet/src/wallet/wallet_type.dart';
 import 'package:oxen_wallet/src/domain/services/wallet_service.dart';
 import 'package:oxen_wallet/l10n.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:oxen_wallet/src/stores/seed_language/seed_language_store.dart';
 
 void main() async {
@@ -78,8 +77,7 @@ void main() async {
         initialMigrationVersion: 2);
 
     final settingsStore = await SettingsStoreBase.load(
-        nodes: nodes,
-        sharedPreferences: sharedPreferences);
+        nodes: nodes, sharedPreferences: sharedPreferences);
     final priceStore = PriceStore();
     final walletStore =
         WalletStore(walletService: walletService, settingsStore: settingsStore);
@@ -89,7 +87,8 @@ void main() async {
         settingsStore: settingsStore,
         priceStore: priceStore);
     final loginStore = LoginStore(
-        sharedPreferences: sharedPreferences, walletsService: walletListService);
+        sharedPreferences: sharedPreferences,
+        walletsService: walletListService);
     final seedLanguageStore = SeedLanguageStore();
 
     setReactions(
@@ -119,18 +118,15 @@ void main() async {
     ], child: OxenWalletApp()));
   } catch (e, trace) {
     runApp(MaterialApp(
-      debugShowCheckedModeBanner: true,
-      home: Scaffold(
-        body: Container(
-          margin:
-            EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 20),
-          child: Text(
-            'Error:\n${e.toString()}\n${trace.toString()}',
-            style: TextStyle(fontSize: 22),
-          )
-        )
-      )
-    ));
+        debugShowCheckedModeBanner: true,
+        home: Scaffold(
+            body: Container(
+                margin:
+                    EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 20),
+                child: Text(
+                  'Error:\n${e.toString()}\n${trace.toString()}',
+                  style: TextStyle(fontSize: 22),
+                )))));
   }
 }
 
@@ -156,15 +152,12 @@ class OxenWalletApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final settingsStore = Provider.of<SettingsStore>(context);
-
     return ChangeNotifierProvider(
-        create: (_) => ThemeChanger(settingsStore.isDarkTheme ? Themes.darkTheme : Themes.lightTheme),
+        create: (_) => ThemeChanger(Themes.darkTheme),
         builder: (context, child) => ChangeNotifierProvider(
-          create: (_) => LanguageNotifier(),
-          builder: (context, child) => MaterialAppWithTheme(),
-        )
-    );
+              create: (_) => LanguageNotifier(),
+              builder: (context, child) => MaterialAppWithTheme(),
+            ));
   }
 }
 
@@ -181,31 +174,31 @@ class MaterialAppWithTheme extends StatelessWidget {
     final syncStore = Provider.of<SyncStore>(context);
     final balanceStore = Provider.of<BalanceStore>(context);
     final theme = Provider.of<ThemeChanger>(context);
-    final statusBarColor =
-        settingsStore.isDarkTheme ? Colors.black : Colors.white;
-    final languageNotifier = Provider.of<LanguageNotifier>(context);
     final contacts = Provider.of<Box<Contact>>(context);
     final nodes = Provider.of<Box<Node>>(context);
     final transactionDescriptions =
         Provider.of<Box<TransactionDescription>>(context);
 
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: statusBarColor));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
 
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: theme.getTheme(),
-        localeListResolutionCallback: (List<Locale>? userLocales, Iterable<Locale> supported) {
-            for (var userLocale in userLocales ?? <Locale>[]) {
-                for (var locale in supported) {
-                    if (locale.languageCode == userLocale.languageCode &&
-                        (locale.countryCode == null || locale.countryCode! == userLocale.countryCode))
-                        return userLocale;
-                }
+        localeListResolutionCallback:
+            (List<Locale>? userLocales, Iterable<Locale> supported) {
+          for (var userLocale in userLocales ?? <Locale>[]) {
+            for (var locale in supported) {
+              if (locale.languageCode == userLocale.languageCode &&
+                  (locale.countryCode == null ||
+                      locale.countryCode! == userLocale.countryCode))
+                return userLocale;
             }
-            return Locale('en');
+          }
+          return Locale('en');
         },
-        locale: settingsStore.languageOverride != null ? Locale(settingsStore.languageOverride!) : null,
+        locale: settingsStore.languageOverride != null
+            ? Locale(settingsStore.languageOverride!)
+            : null,
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
         onGenerateRoute: (settings) => oxenroute.Router.generateRoute(

@@ -6,16 +6,19 @@ abstract class SyncStatus {
 
   final int currHeight;
   final int targetHeight;
-  double progress() => targetHeight > 0 ? max(currHeight / targetHeight, 1.0) : 0.0;
+  double progress() =>
+      targetHeight > 0 ? max(currHeight / targetHeight, 1.0) : 0.0;
 
   String title(AppLocalizations t);
 }
 
 class SyncingSyncStatus extends SyncStatus {
-  const SyncingSyncStatus(int currHeight, int targetHeight) : super(currHeight, targetHeight);
+  const SyncingSyncStatus(int currHeight, int targetHeight)
+      : super(currHeight, targetHeight);
 
   @override
-  String title(AppLocalizations t) => t.sync_status_synchronizing(currHeight, targetHeight);
+  String title(AppLocalizations t) =>
+      t.sync_status_synchronizing(currHeight, targetHeight);
 }
 
 class SyncedSyncStatus extends SyncStatus {

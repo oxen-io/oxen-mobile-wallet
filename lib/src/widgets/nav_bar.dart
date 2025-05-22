@@ -1,3 +1,4 @@
+import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/theme_changer.dart';
 import 'package:oxen_wallet/themes.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,16 +12,12 @@ class NavBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
       Widget? middle,
       Widget? trailing,
       required Color backgroundColor}) {
-    final _themeChanger = Provider.of<ThemeChanger>(context);
-    final _isDarkTheme = _themeChanger.getTheme() == Themes.darkTheme;
-
     return NavBar._internal(
         leading: leading,
         middle: middle,
         trailing: trailing,
         height: _height,
-        backgroundColor:
-            _isDarkTheme ? Theme.of(context).backgroundColor : backgroundColor);
+        backgroundColor: PaletteDark.darkThemeBackgroundDark);
   }
 
   factory NavBar.withShadow(
@@ -29,26 +26,19 @@ class NavBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
       Widget? middle,
       Widget? trailing,
       required Color backgroundColor}) {
-    final _themeChanger = Provider.of<ThemeChanger>(context);
-    final _isDarkTheme = _themeChanger.getTheme() == Themes.darkTheme;
-
     return NavBar._internal(
       leading: leading,
       middle: middle,
       trailing: trailing,
       height: 80,
-      backgroundColor:
-          _isDarkTheme ? Theme.of(context).backgroundColor : backgroundColor,
-      decoration: BoxDecoration(
-          color: _isDarkTheme
-              ? Theme.of(context).backgroundColor
-              : backgroundColor,
-          boxShadow: [
-            BoxShadow(
-                color: Color.fromRGBO(132, 141, 198, 0.11),
-                blurRadius: 8,
-                offset: Offset(0, 2))
-          ]),
+      backgroundColor: PaletteDark.darkThemeBackgroundDark,
+      decoration:
+          BoxDecoration(color: PaletteDark.darkThemeBackgroundDark, boxShadow: [
+        BoxShadow(
+            color: Color.fromRGBO(132, 141, 198, 0.11),
+            blurRadius: 8,
+            offset: Offset(0, 2))
+      ]),
     );
   }
 

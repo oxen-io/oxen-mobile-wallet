@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:oxen_wallet/palette.dart';
 
 class SettingRawWidgetListRow extends StatelessWidget {
   SettingRawWidgetListRow({this.widgetBuilder});
@@ -8,7 +9,7 @@ class SettingRawWidgetListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).accentTextTheme.headline5?.backgroundColor,
+      color: PaletteDark.darkThemeBlack,
       child: widgetBuilder?.call(context) ?? Container(),
     );
   }

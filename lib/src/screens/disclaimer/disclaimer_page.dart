@@ -6,6 +6,7 @@ import 'package:oxen_wallet/palette.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class DisclaimerPage extends BasePage {
   DisclaimerPage({this.isReadOnly = false});
@@ -153,8 +154,9 @@ class DisclaimerBodyState extends State<DisclaimerPageBody> {
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           colors: [
-                            Theme.of(context).backgroundColor.withOpacity(0.0),
-                            Theme.of(context).backgroundColor,
+                            PaletteDark.darkThemeBackgroundDark
+                                .withOpacity(0.0),
+                            PaletteDark.darkThemeBackgroundDark
                           ],
                           begin: FractionalOffset.topCenter,
                           end: FractionalOffset.bottomCenter,
@@ -195,7 +197,8 @@ class DisclaimerBodyState extends State<DisclaimerPageBody> {
                                           color: Palette.lightGrey, width: 1.0),
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(8.0)),
-                                      color: Theme.of(context).backgroundColor),
+                                      color:
+                                          PaletteDark.darkThemeBackgroundDark),
                                   child: _checked
                                       ? Icon(
                                           Icons.check,

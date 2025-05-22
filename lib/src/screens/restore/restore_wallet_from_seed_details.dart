@@ -10,6 +10,7 @@ import 'package:oxen_wallet/src/widgets/blockchain_height_widget.dart';
 import 'package:oxen_wallet/src/widgets/scollable_with_bottom_section.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
 import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class RestoreWalletFromSeedDetailsPage extends BasePage {
   @override

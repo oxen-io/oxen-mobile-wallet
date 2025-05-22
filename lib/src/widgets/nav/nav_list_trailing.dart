@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class NavListTrailing extends StatelessWidget {
-  NavListTrailing({required this.text, required this.leading, this.onTap, this.trailing});
+  NavListTrailing(
+      {required this.text, required this.leading, this.onTap, this.trailing});
 
   final String text;
   final Widget? leading;
@@ -11,7 +14,7 @@ class NavListTrailing extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).accentTextTheme.headline5?.backgroundColor,
+      color: PaletteDark.darkThemeBlack,
       child: ListTile(
         contentPadding: EdgeInsets.only(left: 20.0, right: 20.0),
         leading: leading,

@@ -1,4 +1,5 @@
 import 'package:mobx/mobx.dart';
+import 'package:oxen_wallet/palette.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
@@ -110,7 +111,7 @@ class AuthPageState extends State<AuthPage> {
         key: _key,
         appBar: CupertinoNavigationBar(
           leading: widget.closable ? CloseButton() : Container(),
-          backgroundColor: Theme.of(context).backgroundColor,
+          backgroundColor: PaletteDark.darkThemeBackgroundDark,
           border: null,
         ),
         resizeToAvoidBottomInset: false,

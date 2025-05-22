@@ -3,6 +3,7 @@ import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/routes.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/screens/auth/auth_page.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/widgets/nav/nav_list_arrow.dart';
 import 'package:oxen_wallet/src/widgets/nav/nav_list_header.dart';
 
@@ -54,15 +55,13 @@ class ProfilePageBodyState extends State<ProfilePageBody> {
                 leading: Icon(Icons.settings_rounded,
                     color: Theme.of(context).primaryTextTheme.headline6?.color),
                 text: t.settings_title,
-                onTap: () =>
-                    Navigator.of(context).pushNamed(Routes.settings)),
+                onTap: () => Navigator.of(context).pushNamed(Routes.settings)),
             NavListHeader(title: t.wallet_menu),
             NavListArrow(
                 leading: Icon(Icons.attach_money_rounded,
                     color: Theme.of(context).primaryTextTheme.headline6?.color),
                 text: t.title_stakes,
-                onTap: () =>
-                    Navigator.of(context).pushNamed(Routes.stake)),
+                onTap: () => Navigator.of(context).pushNamed(Routes.stake)),
             NavListArrow(
                 leading: Icon(Icons.contacts_rounded,
                     color: Theme.of(context).primaryTextTheme.headline6?.color),

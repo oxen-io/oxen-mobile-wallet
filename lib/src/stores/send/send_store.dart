@@ -19,9 +19,9 @@ abstract class SendStoreBase with Store {
       {required this.walletService,
       required this.settingsStore,
       required this.transactionDescriptions,
-      required this.priceStore}) :
-    _cryptoNumberFormat = NumberFormat()..maximumFractionDigits = 9,
-    _fiatNumberFormat = NumberFormat()..maximumFractionDigits = 2;
+      required this.priceStore})
+      : _cryptoNumberFormat = NumberFormat()..maximumFractionDigits = 9,
+        _fiatNumberFormat = NumberFormat()..maximumFractionDigits = 2;
 
   WalletService walletService;
   SettingsStore settingsStore;
@@ -49,14 +49,18 @@ abstract class SendStoreBase with Store {
   String? _lastRecipientAddress;
 
   @action
-  Future createStake({required String snPubkey, String? amount, required AppLocalizations l10n}) async {
+  Future createStake(
+      {required String snPubkey,
+      String? amount,
+      required AppLocalizations l10n}) async {
     state = CreatingTransaction();
 
     try {
       final _amount = amount ??
           (cryptoAmount == l10n.all ? null : cryptoAmount.replaceAll(',', '.'));
 
-      _pendingTransaction = await walletService.createStake(snPubkey: snPubkey, amount: _amount);
+      _pendingTransaction =
+          await walletService.createStake(snPubkey: snPubkey, amount: _amount);
       state = TransactionCreatedSuccessfully();
     } catch (e) {
       state = SendingFailed(error: e.toString());
@@ -64,7 +68,10 @@ abstract class SendStoreBase with Store {
   }
 
   @action
-  Future createTransaction({required String recipient, String? amount, required AppLocalizations l10n}) async {
+  Future createTransaction(
+      {required String recipient,
+      String? amount,
+      required AppLocalizations l10n}) async {
     state = CreatingTransaction();
 
     try {
@@ -97,7 +104,8 @@ abstract class SendStoreBase with Store {
       await _pendingTransaction!.commit();
       state = TransactionCommitted();
 
-      if (settingsStore.shouldSaveRecipientAddress && _lastRecipientAddress != null) {
+      if (settingsStore.shouldSaveRecipientAddress &&
+          _lastRecipientAddress != null) {
         await transactionDescriptions.add(TransactionDescription(
             id: transactionId, recipientAddress: _lastRecipientAddress));
       }
@@ -136,8 +144,8 @@ abstract class SendStoreBase with Store {
 
   @action
   Future _calculateFiatAmount() async {
-    final symbol = PriceStoreBase.generateSymbolForFiat(
-        fiat: settingsStore.fiatCurrency);
+    final symbol =
+        PriceStoreBase.generateSymbolForFiat(fiat: settingsStore.fiatCurrency);
     final price = priceStore.prices[symbol] ?? 0;
 
     try {
@@ -150,8 +158,8 @@ abstract class SendStoreBase with Store {
 
   @action
   Future _calculateCryptoAmount() async {
-    final symbol = PriceStoreBase.generateSymbolForFiat(
-        fiat: settingsStore.fiatCurrency);
+    final symbol =
+        PriceStoreBase.generateSymbolForFiat(fiat: settingsStore.fiatCurrency);
     final price = priceStore.prices[symbol] ?? 0;
 
     try {
@@ -167,7 +175,8 @@ abstract class SendStoreBase with Store {
   }
 
   final oxenAmountRE = RegExp('^([0-9]+([.][0-9]{0,9})?|[.][0-9]{1,9})\$');
-  void validateOXEN(String amount, int availableBalance, AppLocalizations l10n) {
+  void validateOXEN(
+      String amount, int availableBalance, AppLocalizations l10n) {
     final value = amount.replaceAll(',', '.');
 
     var isValid = false;

@@ -33,7 +33,7 @@ class OxenTextField extends StatelessWidget {
         focusNode: focusNode,
         style: TextStyle(
             fontSize: 18.0,
-            color: Theme.of(context).accentTextTheme.overline?.color),
+            color: PaletteDark.darkThemeTitle),
         keyboardType: keyboardType,
         inputFormatters: inputFormatters,
         decoration: InputDecoration(

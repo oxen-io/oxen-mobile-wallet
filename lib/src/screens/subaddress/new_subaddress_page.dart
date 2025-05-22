@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:mobx/mobx.dart';
 import 'package:oxen_wallet/l10n.dart';
+import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/stores/subaddress_creation/subaddress_creation_state.dart';
 import 'package:oxen_wallet/src/stores/subaddress_creation/subaddress_creation_store.dart';
@@ -58,7 +59,8 @@ class NewSubaddressFormState extends State<NewSubaddressForm> {
                   controller: _labelController,
                   hintText: tr(context).new_subaddress_label_name,
                   validator: (value) {
-                    subaddressCreationStore.validateSubaddressName(value ?? '', tr(context));
+                    subaddressCreationStore.validateSubaddressName(
+                        value ?? '', tr(context));
                     return subaddressCreationStore.errorMessage;
                   }),
             ),
@@ -72,9 +74,8 @@ class NewSubaddressFormState extends State<NewSubaddressForm> {
               }
             },
             text: tr(context).new_subaddress_create,
-            color: Theme.of(context).accentTextTheme.button?.backgroundColor,
-            borderColor:
-                Theme.of(context).accentTextTheme.button?.decorationColor,
+            color: PaletteDark.darkThemeIndigoButton,
+            borderColor: PaletteDark.darkThemeIndigoButtonBorder,
             isLoading: subaddressCreationStore.state is SubaddressIsCreating),
       ),
     );

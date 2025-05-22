@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:oxen_wallet/l10n.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/screens/seed_language/widgets/seed_language_picker.dart';
@@ -37,13 +38,12 @@ class SeedLanguage extends BasePage {
             ),
           ),
           PrimaryButton(
-              onPressed: () =>
-                  Navigator.of(context).popAndPushNamed(seedLanguageStore.currentRoute),
+              onPressed: () => Navigator.of(context)
+                  .popAndPushNamed(seedLanguageStore.currentRoute),
               text: tr(context).seed_language_next,
-              color:
-              Theme.of(context).primaryTextTheme.button?.backgroundColor,
+              color: Theme.of(context).primaryTextTheme.button?.backgroundColor,
               borderColor:
-              Theme.of(context).primaryTextTheme.button?.decorationColor),
+                  Theme.of(context).primaryTextTheme.button?.decorationColor),
         ],
       ),
     );

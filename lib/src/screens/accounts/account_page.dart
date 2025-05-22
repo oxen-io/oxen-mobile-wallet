@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/stores/account_list/account_list_store.dart';
 import 'package:oxen_wallet/src/wallet/oxen/account.dart';
 import 'package:oxen_wallet/src/widgets/oxen_text_field.dart';
@@ -62,7 +63,8 @@ class AccountFormState extends State<AccountForm> {
                     hintText: tr(context).account,
                     controller: _textController,
                     validator: (value) {
-                      accountListStore.validateAccountName(value ?? '', tr(context));
+                      accountListStore.validateAccountName(
+                          value ?? '', tr(context));
                       return accountListStore.errorMessage;
                     },
                   ),

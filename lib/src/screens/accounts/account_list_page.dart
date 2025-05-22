@@ -1,3 +1,4 @@
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -21,7 +22,7 @@ class AccountListPage extends BasePage {
         width: 28.0,
         height: 28.0,
         decoration: BoxDecoration(
-            shape: BoxShape.circle, color: Theme.of(context).selectedRowColor),
+            shape: BoxShape.circle, color: OxenPalette.tealWithOpacity),
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
@@ -47,8 +48,8 @@ class AccountListPage extends BasePage {
     final accountListStore = Provider.of<AccountListStore>(context);
     final walletStore = Provider.of<WalletStore>(context);
 
-    final currentColor = Theme.of(context).selectedRowColor;
-    final notCurrentColor = Theme.of(context).backgroundColor;
+    final currentColor = OxenPalette.tealWithOpacity;
+    final notCurrentColor = PaletteDark.darkThemeBackgroundDark;
 
     return Container(
       padding: EdgeInsets.only(top: 10, bottom: 20),

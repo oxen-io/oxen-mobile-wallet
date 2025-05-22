@@ -1,3 +1,5 @@
+import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -23,8 +25,8 @@ class SubaddressListPage extends BasePage {
     final walletStore = Provider.of<WalletStore>(context);
     final subaddressListStore = Provider.of<SubaddressListStore>(context);
 
-    final currentColor = Theme.of(context).selectedRowColor;
-    final notCurrentColor = Theme.of(context).backgroundColor;
+    final currentColor = OxenPalette.tealWithOpacity;
+    final notCurrentColor = PaletteDark.darkThemeBackgroundDark;
 
     return Container(
         padding: EdgeInsets.only(top: 20.0, bottom: 20.0),

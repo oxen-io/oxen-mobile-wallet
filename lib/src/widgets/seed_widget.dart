@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/wallet/mnemonic_item.dart';
 import 'package:oxen_wallet/src/wallet/oxen/mnemonics/chinese_simplified.dart';
 import 'package:oxen_wallet/src/wallet/oxen/mnemonics/dutch.dart';
@@ -20,7 +21,11 @@ final List<String> _englishWords =
     EnglishMnemonics.words + EnglishOldMnemonics.words;
 
 class SeedWidget extends StatefulWidget {
-  SeedWidget({required Key key, required this.onMnemonicChange, required this.onFinish, required this.seedLanguage})
+  SeedWidget(
+      {required Key key,
+      required this.onMnemonicChange,
+      required this.onFinish,
+      required this.seedLanguage})
       : super(key: key) {
     switch (seedLanguage) {
       case 'Chinese (simplified)':
@@ -88,8 +93,8 @@ class SeedWidgetState extends State<SeedWidget> {
   }
 
   void addMnemonic(String text) {
-    setState(() => items
-        .add(MnemonicItem(text: text.trim(), dic: widget.words)));
+    setState(
+        () => items.add(MnemonicItem(text: text.trim(), dic: widget.words)));
     _seedController.text = '';
 
     widget.onMnemonicChange(items);
@@ -203,16 +208,17 @@ class SeedWidgetState extends State<SeedWidget> {
   }
 
   void showErrorIfExist(AppLocalizations t) {
-    setState(() => _errorMessage =
-        isCurrentMnemonicValid
+    setState(() => _errorMessage = isCurrentMnemonicValid
         ? null
-        : t.incorrect_seed + (invalidWords.isNotEmpty ? t.invalid_seed_words(invalidWords.join(", ")) : ""));
+        : t.incorrect_seed +
+            (invalidWords.isNotEmpty
+                ? t.invalid_seed_words(invalidWords.join(", "))
+                : ""));
   }
 
   bool isSeedValid() {
     for (final item in items) {
-      if (!item.isCorrect())
-        return false;
+      if (!item.isCorrect()) return false;
     }
 
     return true;

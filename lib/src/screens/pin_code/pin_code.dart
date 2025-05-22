@@ -88,7 +88,7 @@ class PinCodeState<T extends PinCodeWidget> extends State<T> {
   Widget body(BuildContext context) {
     return SafeArea(
         child: Container(
-      color: Theme.of(context).backgroundColor,
+      color: PaletteDark.darkThemeBackgroundDark,
       padding: EdgeInsets.only(left: 40.0, right: 40.0, bottom: 40.0),
       child: Column(children: <Widget>[
         Spacer(flex: 2),
@@ -158,7 +158,7 @@ class PinCodeState<T extends PinCodeWidget> extends State<T> {
                               child: TextButton(
                                 onPressed: () => _pop(),
                                 style: TextButton.styleFrom(
-                                    primary: Colors.transparent,
+                                    foregroundColor: Colors.transparent,
                                     shape: CircleBorder()),
                                 child: deleteIcon,
                               ),
@@ -173,7 +173,7 @@ class PinCodeState<T extends PinCodeWidget> extends State<T> {
                             child: TextButton(
                               onPressed: () => _push(index),
                               style: TextButton.styleFrom(
-                                  primary: Colors.transparent,
+                                  foregroundColor: Colors.transparent,
                                   shape: CircleBorder()),
                               child: Text('$index',
                                   style: TextStyle(

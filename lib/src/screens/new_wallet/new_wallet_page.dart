@@ -15,6 +15,7 @@ import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/stores/seed_language/seed_language_store.dart';
 import 'package:oxen_wallet/src/screens/seed_language/widgets/seed_language_picker.dart';
 import 'package:oxen_wallet/src/util/generate_name.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class NewWalletPage extends BasePage {
   NewWalletPage(
@@ -85,8 +86,8 @@ class _WalletNameFormState extends State<WalletNameForm> {
         content: Column(children: [
           Padding(
             padding: EdgeInsets.all(20),
-            child: Image.asset('assets/images/oxen.png',
-                height: 124, width: 400),
+            child:
+                Image.asset('assets/images/oxen.png', height: 124, width: 400),
           ),
           Padding(
             padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
@@ -95,7 +96,7 @@ class _WalletNameFormState extends State<WalletNameForm> {
                 child: TextFormField(
                   style: TextStyle(
                       fontSize: 24.0,
-                      color: Theme.of(context).accentTextTheme.subtitle2?.color),
+                      color: PaletteDark.wildDarkBlueWithOpacity),
                   controller: nameController,
                   decoration: InputDecoration(
                       hintStyle: TextStyle(
@@ -109,19 +110,22 @@ class _WalletNameFormState extends State<WalletNameForm> {
                               color: Theme.of(context).focusColor,
                               width: 1.0))),
                   validator: (value) {
-                    walletCreationStore.validateWalletName(value ?? '', tr(context));
+                    walletCreationStore.validateWalletName(
+                        value ?? '', tr(context));
                     return walletCreationStore.errorMessage;
                   },
                 )),
           ),
-          Padding(padding: EdgeInsets.only(bottom: 20),
+          Padding(
+            padding: EdgeInsets.only(bottom: 20),
             child: Text(
               tr(context).seed_language_choose,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16.0),
             ),
           ),
-          Padding(padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
+          Padding(
+            padding: EdgeInsets.only(left: 20, right: 20, bottom: 20),
             child: SeedLanguagePicker(),
           )
         ]),
@@ -130,7 +134,8 @@ class _WalletNameFormState extends State<WalletNameForm> {
             return LoadingPrimaryButton(
               onPressed: () {
                 if (_formKey.currentState?.validate() ?? false) {
-                  walletCreationStore.create(name: nameController.text,
+                  walletCreationStore.create(
+                      name: nameController.text,
                       language: seedLanguageStore.selectedSeedLanguage);
                 }
               },

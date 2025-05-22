@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:oxen_wallet/l10n.dart';
+import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/stores/node_list/node_list_store.dart';
 import 'package:oxen_wallet/src/widgets/oxen_text_field.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
 import 'package:oxen_wallet/src/widgets/scollable_with_bottom_section.dart';
 import 'package:provider/provider.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class NewNodePage extends BasePage {
   @override
@@ -69,10 +71,10 @@ class NewNodeFormState extends State<NewNodePageForm> {
                           return nodeList.errorMessage;
                         },
                       )),
-                      // Disable login/password fields for now: oxend currently doesn't support
-                      // Digest MD5 auth (because it is deprecated and insecure), and the wallet2
-                      // code *only* supports Digest MD5 auth.
-                      /*
+                  // Disable login/password fields for now: oxend currently doesn't support
+                  // Digest MD5 auth (because it is deprecated and insecure), and the wallet2
+                  // code *only* supports Digest MD5 auth.
+                  /*
                   Padding(
                       padding: EdgeInsets.only(top: 20),
                       child: OxenTextField(
@@ -102,10 +104,8 @@ class NewNodeFormState extends State<NewNodePageForm> {
                     _passwordController.text = '';
                   },
                   text: tr(context).reset,
-                  color:
-                      Theme.of(context).accentTextTheme.button?.backgroundColor,
-                  borderColor:
-                      Theme.of(context).accentTextTheme.button?.decorationColor),
+                  color: PaletteDark.darkThemeIndigoButton,
+                  borderColor: PaletteDark.darkThemeIndigoButtonBorder),
             )),
             Flexible(
                 child: Container(

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class SettingsTextListRow extends StatelessWidget {
-  SettingsTextListRow({this.onTaped, required this.title, required this.widget});
+  SettingsTextListRow(
+      {this.onTaped, required this.title, required this.widget});
 
   final VoidCallback? onTaped;
   final String title;
@@ -10,7 +13,7 @@ class SettingsTextListRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Theme.of(context).accentTextTheme.headline5?.backgroundColor,
+      color: PaletteDark.darkThemeBlack,
       child: ListTile(
         contentPadding: EdgeInsets.only(left: 20.0, right: 20.0),
         title: Row(

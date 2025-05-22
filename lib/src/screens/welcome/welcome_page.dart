@@ -4,6 +4,7 @@ import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/routes.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class WelcomePage extends BasePage {
   static const _baseWidth = 411.43;
@@ -11,7 +12,7 @@ class WelcomePage extends BasePage {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
+        backgroundColor: PaletteDark.darkThemeBackgroundDark,
         resizeToAvoidBottomInset: false,
         body: SafeArea(child: body(context)));
   }
@@ -28,7 +29,8 @@ class WelcomePage extends BasePage {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.all(20),
-                child: Image.asset('assets/images/oxen.png', height: 124, width: 400),
+                child: Image.asset('assets/images/oxen.png',
+                    height: 124, width: 400),
               ),
               Padding(
                 padding: EdgeInsets.all(10),
@@ -83,9 +85,8 @@ class WelcomePage extends BasePage {
               onPressed: () {
                 Navigator.pushNamed(context, Routes.restoreOptions);
               },
-              color: Theme.of(context).accentTextTheme.caption?.backgroundColor,
-              borderColor:
-                  Theme.of(context).accentTextTheme.caption?.decorationColor,
+              color: PaletteDark.darkThemeTitleViolet,
+              borderColor: PaletteDark.darkThemeBlueButtonBorder,
               text: tr(context).restore_wallet,
             )
           ]))

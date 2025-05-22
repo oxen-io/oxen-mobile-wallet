@@ -1,6 +1,8 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class Picker<Item extends Object> extends StatelessWidget {
   Picker(
@@ -35,7 +37,7 @@ class Picker<Item extends Object> extends StatelessWidget {
                       width: double.infinity,
                       height: pickerHeight,
                       decoration: BoxDecoration(
-                          color: Theme.of(context).backgroundColor,
+                          color: PaletteDark.darkThemeBackgroundDark,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(20),
                               topRight: Radius.circular(20))),

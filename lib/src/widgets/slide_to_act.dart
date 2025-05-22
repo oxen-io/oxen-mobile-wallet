@@ -90,8 +90,7 @@ class SlideToActState extends State<SlideToAct> with TickerProviderStateMixin {
   double _endDx = 0;
   double? _containerWidth;
   bool submitted = false;
-  late AnimationController
-      _cancelAnimationController;
+  late AnimationController _cancelAnimationController;
 
   @override
   Widget build(BuildContext context) {
@@ -113,7 +112,7 @@ class SlideToActState extends State<SlideToAct> with TickerProviderStateMixin {
               : BoxConstraints.expand(height: widget.height),
           child: Material(
             elevation: widget.elevation,
-            color: widget.outerColor ?? Theme.of(context).accentColor,
+            color: widget.outerColor ?? Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(widget.borderRadius),
             child: submitted
                 ? Transform(
@@ -132,9 +131,9 @@ class SlideToActState extends State<SlideToAct> with TickerProviderStateMixin {
                           Positioned.fill(
                             right: 0,
                             child: Container(
-                                color: widget.outerColor ??
-                                    Theme.of(context).accentColor,
-                              ),
+                              color: widget.outerColor ??
+                                  Theme.of(context).colorScheme.secondary,
+                            ),
                           ),
                         ],
                       ),
@@ -184,15 +183,13 @@ class SlideToActState extends State<SlideToAct> with TickerProviderStateMixin {
                                 }
                               },
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 8.0),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
                                 child: Material(
                                   borderRadius: BorderRadius.circular(
                                       widget.borderRadius),
                                   color: widget.innerColor ??
-                                      Theme.of(context)
-                                          .primaryIconTheme
-                                          .color,
+                                      Theme.of(context).primaryIconTheme.color,
                                   child: Container(
                                     padding: EdgeInsets.all(
                                         widget.sliderButtonIconPadding),
@@ -202,11 +199,11 @@ class SlideToActState extends State<SlideToAct> with TickerProviderStateMixin {
                                         child: widget.sliderButtonIcon ??
                                             Icon(
                                               Icons.arrow_forward,
-                                              size:
-                                                  widget.sliderButtonIconSize,
+                                              size: widget.sliderButtonIconSize,
                                               color: widget.outerColor ??
                                                   Theme.of(context)
-                                                      .accentColor,
+                                                      .colorScheme
+                                                      .secondary,
                                             ),
                                       ),
                                     ),
@@ -267,14 +264,18 @@ class SlideToActState extends State<SlideToAct> with TickerProviderStateMixin {
     );
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final containerBox = _containerKey.currentContext!.findRenderObject() as RenderBox;
+      final containerBox =
+          _containerKey.currentContext!.findRenderObject() as RenderBox;
       _containerWidth = containerBox.size.width;
 
-      final sliderBox = _sliderKey.currentContext!.findRenderObject() as RenderBox;
+      final sliderBox =
+          _sliderKey.currentContext!.findRenderObject() as RenderBox;
       final sliderWidth = sliderBox.size.width;
 
-      _maxDx =
-          _containerWidth! - (sliderWidth / 2) - 40 - widget.sliderButtonYOffset;
+      _maxDx = _containerWidth! -
+          (sliderWidth / 2) -
+          40 -
+          widget.sliderButtonYOffset;
     });
   }
 

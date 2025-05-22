@@ -35,6 +35,7 @@
 **/android/.gradle
 **/android/captures/
 **/android/gradlew
+**/android/build/
 **/android/gradlew.bat
 **/android/local.properties
 **/android/**/GeneratedPluginRegistrant.java
@@ -82,6 +83,7 @@ android/app/.externalNativeBuild/
 **/*.g.dart
 
 android/key.properties
+android/oxen-android-wallet.keystore
 
 **/tool/.secrets-prod.json
 **/lib/.secrets.g.dart

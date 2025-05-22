@@ -9,6 +9,7 @@ import 'package:oxen_wallet/src/node/sync_status.dart';
 import 'package:oxen_wallet/src/screens/auth/auth_page.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/screens/oxen_amount.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/stores/balance/balance_store.dart';
 import 'package:oxen_wallet/src/stores/send/send_store.dart';
 import 'package:oxen_wallet/src/stores/send/sending_state.dart';
@@ -78,7 +79,7 @@ class NewStakeFormState extends State<NewStakeForm> {
             Container(
               padding: EdgeInsets.only(left: 18, right: 18),
               decoration: BoxDecoration(
-                  color: Theme.of(context).backgroundColor,
+                  color: PaletteDark.darkThemeBackgroundDark,
                   boxShadow: [
                     BoxShadow(
                       color: Palette.shadowGrey,
@@ -89,10 +90,7 @@ class NewStakeFormState extends State<NewStakeForm> {
                   border: Border(
                       top: BorderSide(
                           width: 1,
-                          color: Theme.of(context)
-                              .accentTextTheme
-                              .subtitle2
-                              ?.backgroundColor ?? Colors.white))),
+                          color: PaletteDark.darkThemeGrey ?? Colors.white))),
               child: SizedBox(
                 height: 56,
                 width: double.infinity,
@@ -110,17 +108,15 @@ class NewStakeFormState extends State<NewStakeForm> {
                             Text(walletStore.name,
                                 style: TextStyle(
                                     fontSize: 18,
-                                    color: Theme.of(context)
-                                        .accentTextTheme
-                                        .overline
-                                        ?.color,
+                                    color: PaletteDark.darkThemeTitle,
                                     height: 1.25)),
                           ]);
                     }),
                     Observer(builder: (context) {
-                      final availableBalance =
-                          settingsStore.balanceShowFull || settingsStore.balanceShowAvailable
-                          ? balanceStore.unlockedBalanceString : '---';
+                      final availableBalance = settingsStore.balanceShowFull ||
+                              settingsStore.balanceShowAvailable
+                          ? balanceStore.unlockedBalanceString
+                          : '---';
 
                       return Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -128,18 +124,12 @@ class NewStakeFormState extends State<NewStakeForm> {
                             Text(t.oxen_available_balance,
                                 style: TextStyle(
                                   fontSize: 12,
-                                  color: Theme.of(context)
-                                      .accentTextTheme
-                                      .overline
-                                      ?.backgroundColor,
+                                  color: PaletteDark.darkThemeGrey,
                                 )),
                             Text(availableBalance,
                                 style: TextStyle(
                                     fontSize: 22,
-                                    color: Theme.of(context)
-                                        .accentTextTheme
-                                        .overline
-                                        ?.color,
+                                    color: PaletteDark.darkThemeTitle,
                                     height: 1.1)),
                           ]);
                     })
@@ -157,7 +147,8 @@ class NewStakeFormState extends State<NewStakeForm> {
                     controller: _snpkController,
                     placeholder: t.service_node_key,
                     focusNode: _focusNode,
-                    validator: (value) => isHexKey(value) ? null : t.error_text_service_node,
+                    validator: (value) =>
+                        isHexKey(value) ? null : t.error_text_service_node,
                     options: [AddressTextFieldOption.qrCode],
                   ),
                   oxenAmountField(
@@ -165,7 +156,8 @@ class NewStakeFormState extends State<NewStakeForm> {
                     setAll: () => sendStore.setSendAll(t),
                     controller: _cryptoAmountController,
                     validator: (value) {
-                      sendStore.validateOXEN(value ?? '', balanceStore.unlockedBalance, t);
+                      sendStore.validateOXEN(
+                          value ?? '', balanceStore.unlockedBalance, t);
                       return sendStore.errorMessage;
                     },
                   ),
@@ -178,10 +170,7 @@ class NewStakeFormState extends State<NewStakeForm> {
                             style: TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w500,
-                              color: Theme.of(context)
-                                  .accentTextTheme
-                                  .overline
-                                  ?.backgroundColor,
+                              color: PaletteDark.darkThemeGrey,
                             )),
                         Text(
                             '${calculateEstimatedFee(priority: OxenTransactionPriority.slow)} OXEN',
@@ -220,8 +209,7 @@ class NewStakeFormState extends State<NewStakeForm> {
                         }
 
                         await sendStore.createStake(
-                            snPubkey: _snpkController.text,
-                            l10n: t);
+                            snPubkey: _snpkController.text, l10n: t);
 
                         Navigator.of(auth.context).pop();
                         isSuccessful = true;
@@ -277,18 +265,23 @@ class NewStakeFormState extends State<NewStakeForm> {
         });
       }
 
-      if (state is TransactionCreatedSuccessfully && sendStore.pendingTransaction != null) {
+      if (state is TransactionCreatedSuccessfully &&
+          sendStore.pendingTransaction != null) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           showConfirmOxenDialog(
             context,
             t.confirm_stake,
-            t.amount(sendStore.pendingTransaction!.amount) + " OXEN\n"
-                + t.fee(sendStore.pendingTransaction!.fee) + " OXEN",
+            t.amount(sendStore.pendingTransaction!.amount) +
+                " OXEN\n" +
+                t.fee(sendStore.pendingTransaction!.fee) +
+                " OXEN",
             onConfirm: (_) {
               Navigator.of(context).pop();
               sendStore.commitTransaction();
             },
-            onDismiss: (_) { Navigator.of(context).pop(); },
+            onDismiss: (_) {
+              Navigator.of(context).pop();
+            },
           );
         });
       }
@@ -307,7 +300,9 @@ class NewStakeFormState extends State<NewStakeForm> {
                         onPressed: () {
                           _snpkController.text = '';
                           _cryptoAmountController.text = '';
-                          Navigator.of(context)..pop()..pop();
+                          Navigator.of(context)
+                            ..pop()
+                            ..pop();
                         })
                   ],
                 );

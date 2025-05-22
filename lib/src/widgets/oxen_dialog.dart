@@ -5,6 +5,7 @@ import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
 import 'package:oxen_wallet/src/widgets/slide_to_act.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 Future showOxenDialog(BuildContext context, Widget child,
     {required void Function(BuildContext context) onDismiss}) {
@@ -65,7 +66,7 @@ class OxenDialog extends StatelessWidget {
                 Container(
                     width: double.infinity,
                     decoration: BoxDecoration(
-                        color: Theme.of(context).backgroundColor,
+                        color: PaletteDark.darkThemeBackgroundDark,
                         borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(20),
                             topRight: Radius.circular(20))),

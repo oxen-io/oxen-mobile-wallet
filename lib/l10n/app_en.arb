@@ -181,6 +181,7 @@
   "your_contributions" : "Your Contributions",
   "start_staking" : "Start staking",
   "stake_more" : "Stake more",
+  "registration_taking_migration_oxen_to_session_token" : "Registration and staking into new Service Nodes is disabled due to the ongoing migration of Oxen to Session Token. Read more here [Oxen IO website]",
   "nothing_staked" : "Nothing staked yet",
   "service_node_key": "Service Node Key",
   "stake_oxen": "Stake Oxen",

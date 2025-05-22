@@ -9,6 +9,7 @@ import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/screens/dashboard/date_section_row.dart';
 import 'package:oxen_wallet/src/screens/dashboard/transaction_row.dart';
 import 'package:oxen_wallet/src/screens/dashboard/wallet_menu.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/stores/action_list/action_list_store.dart';
 import 'package:oxen_wallet/src/stores/action_list/date_section_item.dart';
 import 'package:oxen_wallet/src/stores/action_list/transaction_list_item.dart';
@@ -115,10 +116,12 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
     final t = tr(context);
     final transactionDateFormat = DateFormat.yMMMd(t.localeName).add_jm();
 
-    final oxen_balance_label_style = TextStyle(color: OxenPalette.teal, fontSize: 16);
+    final oxen_balance_label_style =
+        TextStyle(color: OxenPalette.teal, fontSize: 16);
     final oxen_balance_style = TextStyle(
         color: Theme.of(context).primaryTextTheme.caption?.color, fontSize: 28);
-    final fiat_balance_style = TextStyle(color: Palette.wildDarkBlue, fontSize: 16);
+    final fiat_balance_style =
+        TextStyle(color: Palette.wildDarkBlue, fontSize: 16);
 
     return Observer(
         key: _listObserverKey,
@@ -135,7 +138,7 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                   return Container(
                     margin: EdgeInsets.only(bottom: 20),
                     decoration: BoxDecoration(
-                        color: Theme.of(context).backgroundColor,
+                        color: PaletteDark.darkThemeBackgroundDark,
                         boxShadow: [
                           BoxShadow(
                               color: Palette.shadowGreyWithOpacity,
@@ -154,12 +157,15 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
 
                               var descriptionText = '';
 
-                              if (status is SyncingSyncStatus && status.targetHeight >= status.currHeight) {
-                                descriptionText = t.blocks_remaining(status.targetHeight - status.currHeight);
+                              if (status is SyncingSyncStatus &&
+                                  status.targetHeight >= status.currHeight) {
+                                descriptionText = t.blocks_remaining(
+                                    status.targetHeight - status.currHeight);
                               }
 
                               if (status is FailedSyncStatus) {
-                                descriptionText = t.please_try_to_connect_to_another_node;
+                                descriptionText =
+                                    t.please_try_to_connect_to_another_node;
                               }
 
                               return Container(
@@ -191,26 +197,33 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                                   ],
                                 ),
                               );
-                            }
-                        ),
+                            }),
                         Observer(builder: (_) {
                           var c = <Widget>[
-                              Container(width: double.infinity, padding: EdgeInsets.only(top: 25)),
+                            Container(
+                                width: double.infinity,
+                                padding: EdgeInsets.only(top: 25)),
                           ];
 
-                          if (!(settingsStore.balanceShowFull || settingsStore.balanceShowAvailable
-                                || (settingsStore.balanceShowPending && balanceStore.pendingRewards > 0))) {
-                            c.add(Text(t.oxen_hidden, style: oxen_balance_label_style));
+                          if (!(settingsStore.balanceShowFull ||
+                              settingsStore.balanceShowAvailable ||
+                              (settingsStore.balanceShowPending &&
+                                  balanceStore.pendingRewards > 0))) {
+                            c.add(Text(t.oxen_hidden,
+                                style: oxen_balance_label_style));
                           }
 
                           bool need_space = false;
                           if (settingsStore.balanceShowFull) {
                             c.addAll([
-                              Text(t.oxen_full_balance, style: oxen_balance_label_style),
-                              Text(balanceStore.fullBalanceString, style: oxen_balance_style),
+                              Text(t.oxen_full_balance,
+                                  style: oxen_balance_label_style),
+                              Text(balanceStore.fullBalanceString,
+                                  style: oxen_balance_style),
                             ]);
                             if (settingsStore.enableFiatCurrency)
-                              c.add(Text('${balanceStore.fiatFullBalance} ${settingsStore.fiatCurrency}',
+                              c.add(Text(
+                                  '${balanceStore.fiatFullBalance} ${settingsStore.fiatCurrency}',
                                   style: fiat_balance_style));
 
                             need_space = true;
@@ -218,34 +231,49 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
 
                           if (settingsStore.balanceShowAvailable) {
                             if (need_space)
-                              c.add(Container(width: double.infinity, padding: EdgeInsets.only(top: 25)));
+                              c.add(Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.only(top: 25)));
 
                             c.addAll([
-                              Text(t.oxen_available_balance, style: oxen_balance_label_style),
-                              Text(balanceStore.unlockedBalanceString, style: oxen_balance_style),
+                              Text(t.oxen_available_balance,
+                                  style: oxen_balance_label_style),
+                              Text(balanceStore.unlockedBalanceString,
+                                  style: oxen_balance_style),
                             ]);
                             if (settingsStore.enableFiatCurrency)
-                              c.add(Text('${balanceStore.fiatUnlockedBalance} ${settingsStore.fiatCurrency}',
+                              c.add(Text(
+                                  '${balanceStore.fiatUnlockedBalance} ${settingsStore.fiatCurrency}',
                                   style: fiat_balance_style));
 
                             need_space = true;
                           }
 
-                          if (settingsStore.balanceShowPending && balanceStore.pendingRewards > 0) {
+                          if (settingsStore.balanceShowPending &&
+                              balanceStore.pendingRewards > 0) {
                             if (need_space)
-                              c.add(Container(width: double.infinity, padding: EdgeInsets.only(top: 25)));
+                              c.add(Container(
+                                  width: double.infinity,
+                                  padding: EdgeInsets.only(top: 25)));
 
                             c.addAll([
-                              Text(t.oxen_pending_rewards, style: oxen_balance_label_style),
-                              Text(balanceStore.pendingRewardsString, style: oxen_balance_style),
-                              Text(t.next_payout_height(balanceStore.pendingRewardsHeight), style: fiat_balance_style),
+                              Text(t.oxen_pending_rewards,
+                                  style: oxen_balance_label_style),
+                              Text(balanceStore.pendingRewardsString,
+                                  style: oxen_balance_style),
+                              Text(
+                                  t.next_payout_height(
+                                      balanceStore.pendingRewardsHeight),
+                                  style: fiat_balance_style),
                             ]);
 
                             need_space = true;
                           }
 
                           if (need_space)
-                            c.add(Container(width: double.infinity, padding: EdgeInsets.only(top: 25)));
+                            c.add(Container(
+                                width: double.infinity,
+                                padding: EdgeInsets.only(top: 25)));
 
                           return Column(children: c);
                         }),
@@ -299,74 +327,84 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
                           PopupMenuButton<int>(
                             itemBuilder: (context) => [
                               PopupMenuItem(
-                                enabled: false,
-                                value: -1,
-                                child: Text(t.transactions,
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Theme.of(context).primaryTextTheme.caption?.color
-                                  )
-                                )
-                              ),
+                                  enabled: false,
+                                  value: -1,
+                                  child: Text(t.transactions,
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Theme.of(context)
+                                              .primaryTextTheme
+                                              .caption
+                                              ?.color))),
                               PopupMenuItem(
-                                value: 0,
-                                child: Observer(
-                                  builder: (_) => Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(t.incoming),
-                                      Checkbox(
-                                        value: actionListStore.transactionFilterStore.displayIncoming,
-                                        onChanged: (value) => actionListStore.transactionFilterStore.toggleIncoming(),
-                                      )
-                                    ]
-                                  )
-                                )
-                              ),
+                                  value: 0,
+                                  child: Observer(
+                                      builder: (_) => Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(t.incoming),
+                                                Checkbox(
+                                                  value: actionListStore
+                                                      .transactionFilterStore
+                                                      .displayIncoming,
+                                                  onChanged: (value) =>
+                                                      actionListStore
+                                                          .transactionFilterStore
+                                                          .toggleIncoming(),
+                                                )
+                                              ]))),
                               PopupMenuItem(
-                                value: 1,
-                                child: Observer(
-                                  builder: (_) => Row(
-                                    mainAxisAlignment:MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(t.outgoing),
-                                      Checkbox(
-                                        value: actionListStore.transactionFilterStore.displayOutgoing,
-                                        onChanged: (value) => actionListStore.transactionFilterStore.toggleOutgoing(),
-                                      )
-                                    ]
-                                  )
-                                )
-                              ),
+                                  value: 1,
+                                  child: Observer(
+                                      builder: (_) => Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(t.outgoing),
+                                                Checkbox(
+                                                  value: actionListStore
+                                                      .transactionFilterStore
+                                                      .displayOutgoing,
+                                                  onChanged: (value) =>
+                                                      actionListStore
+                                                          .transactionFilterStore
+                                                          .toggleOutgoing(),
+                                                )
+                                              ]))),
                               PopupMenuItem(
-                                value: 2,
-                                child: Text(t.transactions_by_date)
-                              ),
+                                  value: 2,
+                                  child: Text(t.transactions_by_date)),
                             ],
                             child: Text(t.filters,
-                              style: TextStyle(
-                                fontSize: 16.0,
-                                color: Theme.of(context).primaryTextTheme.subtitle2?.color
-                              )
-                            ),
+                                style: TextStyle(
+                                    fontSize: 16.0,
+                                    color: Theme.of(context)
+                                        .primaryTextTheme
+                                        .subtitle2
+                                        ?.color)),
                             onSelected: (item) async {
                               if (item == 2) {
                                 final picked = await showDateRangePicker(
-                                  context: context,
-                                  initialDateRange: DateTimeRange(
-                                    start: DateTime.now().subtract(Duration(days: 1)),
-                                    end: DateTime.now()
-                                  ),
-                                  firstDate: DateTime(2018),
-                                  lastDate: DateTime.now()
-                                );
+                                    context: context,
+                                    initialDateRange: DateTimeRange(
+                                        start: DateTime.now()
+                                            .subtract(Duration(days: 1)),
+                                        end: DateTime.now()),
+                                    firstDate: DateTime(2018),
+                                    lastDate: DateTime.now());
 
-                                actionListStore.transactionFilterStore.changeStartDate(picked?.start);
+                                actionListStore.transactionFilterStore
+                                    .changeStartDate(picked?.start);
                                 // Add 1d to the end date because we want the picker returns the
                                 // DateTime of the beginning of the end date, but we want to include
                                 // everything on that date as well.
-                                actionListStore.transactionFilterStore.changeEndDate(
-                                  picked == null ? null : picked.end.add(Duration(days: 1)));
+                                actionListStore.transactionFilterStore
+                                    .changeEndDate(picked == null
+                                        ? null
+                                        : picked.end.add(Duration(days: 1)));
                               }
                             },
                           )
@@ -388,10 +426,11 @@ class DashboardPageBodyState extends State<DashboardPageBody> {
 
                 if (item is TransactionListItem) {
                   final transaction = item.transaction;
-                  final formattedAmount =
-                      settingsStore.balanceShowFull || settingsStore.balanceShowAvailable
-                          ? transaction.stakeFormatted() ?? transaction.amountFormatted()
-                          : '---';
+                  final formattedAmount = settingsStore.balanceShowFull ||
+                          settingsStore.balanceShowAvailable
+                      ? transaction.stakeFormatted() ??
+                          transaction.amountFormatted()
+                      : '---';
 
                   return TransactionRow(
                       onTap: () => Navigator.of(context).pushNamed(

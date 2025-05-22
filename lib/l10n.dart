@@ -1,16 +1,16 @@
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+import './l10n/app_localizations.dart';
 
-export 'package:flutter_gen/gen_l10n/app_localizations.dart' show AppLocalizations;
+export './l10n/app_localizations.dart' show AppLocalizations;
 
 AppLocalizations tr(BuildContext ctx) {
-    return AppLocalizations.of(ctx) ?? lookupAppLocalizations(Locale('en', ''));
+  return AppLocalizations.of(ctx) ?? lookupAppLocalizations(Locale('en', ''));
 }
 
 class LanguageName {
-    final String code;
-    final String name;
-    const LanguageName(this.code, this.name);
+  final String code;
+  final String name;
+  const LanguageName(this.code, this.name);
 }
 
 const languageNames = <LanguageName>[
@@ -31,5 +31,7 @@ const languageNames = <LanguageName>[
 
 class LanguageNotifier with ChangeNotifier {
   LanguageNotifier();
-  void trigger() { notifyListeners(); }
+  void trigger() {
+    notifyListeners();
+  }
 }

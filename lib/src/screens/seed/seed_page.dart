@@ -1,3 +1,4 @@
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:provider/provider.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +14,8 @@ class SeedPage extends BasePage {
   SeedPage({this.onCloseCallback});
 
   // static final image = Image.asset('assets/images/seed_image.png');
-  static final image = Image.asset('assets/images/oxen.png', height: 124, width: 400);
+  static final image =
+      Image.asset('assets/images/oxen.png', height: 124, width: 400);
 
   @override
   bool get isModalBackButton => true;
@@ -24,8 +26,9 @@ class SeedPage extends BasePage {
   final VoidCallback? onCloseCallback;
 
   @override
-  void onClose(BuildContext context) =>
-      onCloseCallback != null ? onCloseCallback!() : Navigator.of(context).pop();
+  void onClose(BuildContext context) => onCloseCallback != null
+      ? onCloseCallback!()
+      : Navigator.of(context).pop();
 
   @override
   Widget? leading(BuildContext context) {
@@ -122,23 +125,21 @@ class SeedPage extends BasePage {
                                       onPressed: () {
                                         Clipboard.setData(
                                             ClipboardData(text: _seed));
-                                        ScaffoldMessenger.of(context).showSnackBar(
+                                        ScaffoldMessenger.of(context)
+                                            .showSnackBar(
                                           SnackBar(
-                                            content: Text(tr(context).copied_to_clipboard),
+                                            content: Text(tr(context)
+                                                .copied_to_clipboard),
                                             backgroundColor: Colors.green,
-                                            duration: Duration(milliseconds: 1500),
+                                            duration:
+                                                Duration(milliseconds: 1500),
                                           ),
                                         );
                                       },
                                       text: tr(context).copy,
-                                      color: Theme.of(context)
-                                          .accentTextTheme
-                                          .caption
-                                          ?.backgroundColor,
-                                      borderColor: Theme.of(context)
-                                          .accentTextTheme
-                                          .caption
-                                          ?.decorationColor),
+                                      color: PaletteDark.darkThemeTitleViolet,
+                                      borderColor: PaletteDark
+                                          .darkThemeBlueButtonBorder),
                                 )))
                       ],
                     ),

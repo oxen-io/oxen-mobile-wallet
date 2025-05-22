@@ -2,8 +2,7 @@ import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/src/domain/common/enumerable_item.dart';
 
 class BalanceDisplayMode extends EnumerableItem<int> with Serializable<int> {
-  const BalanceDisplayMode({required int raw})
-      : super(raw: raw);
+  const BalanceDisplayMode({required int raw}) : super(raw: raw);
 
   static const all = [
     BalanceDisplayMode.fullBalance,

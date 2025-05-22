@@ -3,6 +3,7 @@ import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class DangerzoneRemoveWalletPage extends BasePage {
   DangerzoneRemoveWalletPage({required this.onConfirmed});
@@ -70,7 +71,8 @@ class DangerzoneRemoveWalletPage extends BasePage {
             },
             text: tr(context).yes_im_sure,
             color: Theme.of(context).primaryTextTheme.button?.backgroundColor,
-            borderColor: Theme.of(context).primaryTextTheme.button?.decorationColor),
+            borderColor:
+                Theme.of(context).primaryTextTheme.button?.decorationColor),
       )
     ]);
   }

@@ -6,6 +6,7 @@ import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/routes.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/widgets/primary_button.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class DangerzonePage extends BasePage {
   DangerzonePage({required this.nextPage});

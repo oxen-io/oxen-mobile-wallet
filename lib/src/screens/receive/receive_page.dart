@@ -1,3 +1,4 @@
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -66,7 +67,7 @@ class ReceiveBodyState extends State<ReceiveBody> {
     final walletStore = Provider.of<WalletStore>(context);
     final subaddressListStore = Provider.of<SubaddressListStore>(context);
 
-    final currentColor = Theme.of(context).selectedRowColor;
+    final currentColor = OxenPalette.tealWithOpacity;
     final notCurrentColor = Theme.of(context).scaffoldBackgroundColor;
 
     amountController.addListener(() {
@@ -87,7 +88,7 @@ class ReceiveBodyState extends State<ReceiveBody> {
               children: <Widget>[
                 Container(
                   padding: EdgeInsets.all(35.0),
-                  color: Theme.of(context).backgroundColor,
+                  color: PaletteDark.darkThemeBackgroundDark,
                   child: Column(
                     children: <Widget>[
                       Observer(builder: (_) {
@@ -98,13 +99,16 @@ class ReceiveBodyState extends State<ReceiveBody> {
                                 flex: 2,
                                 child: AspectRatio(
                                   aspectRatio: 1.0,
-                                  child: QrImage(
+                                  child: QrImageView(
                                     size: 100.0,
                                     version: QrVersions.auto,
                                     errorCorrectionLevel: QrErrorCorrectLevel.M,
-                                    data: walletStore.subaddress.address + walletStore.amountValue,
-                                    embeddedImage: AssetImage('assets/images/oxen.png'),
-                                    embeddedImageStyle: QrEmbeddedImageStyle(size: Size(40, 40)),
+                                    data: walletStore.subaddress.address +
+                                        walletStore.amountValue,
+                                    embeddedImage:
+                                        AssetImage('assets/images/oxen.png'),
+                                    embeddedImageStyle: QrEmbeddedImageStyle(
+                                        size: Size(40, 40)),
                                     backgroundColor: OxenPalette.whiteBlue,
                                     foregroundColor: OxenPalette.navy,
                                   ),
@@ -118,34 +122,34 @@ class ReceiveBodyState extends State<ReceiveBody> {
                           children: <Widget>[
                             Expanded(
                                 child: Container(
-                              padding: EdgeInsets.all(20.0),
-                              child: Center(
-                                child: GestureDetector(
-                                  onTap: () {
-                                    Clipboard.setData(ClipboardData(
-                                        text: walletStore.subaddress.address));
-                                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                        tr(context).copied_to_clipboard,
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                      backgroundColor: Colors.green,
-                                    ));
-                                  },
-                                  child: Text(
-                                    walletStore.subaddress.address,
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.w600,
-                                        color: Theme.of(context)
-                                            .primaryTextTheme
-                                            .headline6
-                                            ?.color)
-                                  )
-                                )
-                              )
-                            ))
+                                    padding: EdgeInsets.all(20.0),
+                                    child: Center(
+                                        child: GestureDetector(
+                                            onTap: () {
+                                              Clipboard.setData(ClipboardData(
+                                                  text: walletStore
+                                                      .subaddress.address));
+                                              ScaffoldMessenger.of(context)
+                                                  .showSnackBar(SnackBar(
+                                                content: Text(
+                                                  tr(context)
+                                                      .copied_to_clipboard,
+                                                  style: TextStyle(
+                                                      color: Colors.white),
+                                                ),
+                                                backgroundColor: Colors.green,
+                                              ));
+                                            },
+                                            child: Text(
+                                                walletStore.subaddress.address,
+                                                textAlign: TextAlign.center,
+                                                style: TextStyle(
+                                                    fontSize: 14.0,
+                                                    fontWeight: FontWeight.w600,
+                                                    color: Theme.of(context)
+                                                        .primaryTextTheme
+                                                        .headline6
+                                                        ?.color))))))
                           ],
                         );
                       }),
@@ -155,18 +159,20 @@ class ReceiveBodyState extends State<ReceiveBody> {
                               child: Form(
                                   key: _formKey,
                                   child: OxenTextField(
-                                    keyboardType:
-                                        TextInputType.numberWithOptions(decimal: true),
-                                    inputFormatters: [
-                                      FilteringTextInputFormatter.deny(RegExp('[- ]'))
-                                    ],
-                                    hintText: tr(context).receive_amount,
-                                    validator: (value) {
-                                      walletStore.validateAmount(value ?? '', tr(context));
-                                      return walletStore.errorMessage;
-                                    },
-                                    controller: amountController
-                                  )))
+                                      keyboardType:
+                                          TextInputType.numberWithOptions(
+                                              decimal: true),
+                                      inputFormatters: [
+                                        FilteringTextInputFormatter.deny(
+                                            RegExp('[- ]'))
+                                      ],
+                                      hintText: tr(context).receive_amount,
+                                      validator: (value) {
+                                        walletStore.validateAmount(
+                                            value ?? '', tr(context));
+                                        return walletStore.errorMessage;
+                                      },
+                                      controller: amountController)))
                         ],
                       )
                     ],
@@ -176,7 +182,7 @@ class ReceiveBodyState extends State<ReceiveBody> {
                   children: <Widget>[
                     Expanded(
                         child: Container(
-                      color: Theme.of(context).accentTextTheme.headline5?.color,
+                      color: PaletteDark.darkThemeBlack,
                       child: Column(
                         children: <Widget>[
                           ListTile(
@@ -193,7 +199,7 @@ class ReceiveBodyState extends State<ReceiveBody> {
                               width: 28.0,
                               height: 28.0,
                               decoration: BoxDecoration(
-                                  color: Theme.of(context).selectedRowColor,
+                                  color: OxenPalette.tealWithOpacity,
                                   shape: BoxShape.circle),
                               child: InkWell(
                                 onTap: () => Navigator.of(context)

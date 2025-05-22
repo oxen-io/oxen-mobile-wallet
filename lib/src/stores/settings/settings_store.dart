@@ -86,8 +86,7 @@ abstract class SettingsStoreBase with Store {
         initialSaveRecipientAddress: sharedPreferences.getBool(shouldSaveRecipientAddressKey) ?? true,
         allowBiometricAuthenticationKey: sharedPreferences.getBool(allowBiometricAuthenticationKey) ?? false,
         enableFiatCurrencyKey: sharedPreferences.getBool(enableFiatCurrencyKey) ?? false,
-        initialDarkTheme: sharedPreferences.getBool(currentDarkTheme) ??
-            SchedulerBinding.instance.window.platformBrightness == Brightness.dark,
+        initialDarkTheme: sharedPreferences.getBool(currentDarkTheme) ?? true,
         initialPinLength: sharedPreferences.getInt(currentPinLength) ?? 4,
         initialLanguageOverride: sharedPreferences.getString(currentLanguageOverride));
 

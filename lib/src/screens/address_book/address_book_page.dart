@@ -7,6 +7,7 @@ import 'package:oxen_wallet/l10n.dart';
 import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/routes.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/stores/address_book/address_book_store.dart';
 import 'package:oxen_wallet/src/widgets/oxen_dialog.dart';
 import 'package:provider/provider.dart';
@@ -29,7 +30,7 @@ class AddressBookPage extends BasePage {
         width: 28.0,
         height: 28.0,
         decoration: BoxDecoration(
-            shape: BoxShape.circle, color: Theme.of(context).selectedRowColor),
+            shape: BoxShape.circle, color: OxenPalette.tealWithOpacity),
         child: Stack(
           alignment: Alignment.center,
           children: <Widget>[
@@ -108,8 +109,10 @@ class AddressBookPage extends BasePage {
                     contact.name,
                     style: TextStyle(
                         fontSize: 16.0,
-                        color:
-                            Theme.of(context).primaryTextTheme.headline6?.color),
+                        color: Theme.of(context)
+                            .primaryTextTheme
+                            .headline6
+                            ?.color),
                   ),
                 );
 
@@ -117,36 +120,35 @@ class AddressBookPage extends BasePage {
                     ? content
                     : Slidable(
                         key: Key('${contact.key}'),
-                        endActionPane: ActionPane(
-                          motion: const DrawerMotion(),
-                          children: [
-                            SlidableAction(
-                              label: 'Edit',
-                              backgroundColor: Colors.blue,
-                              icon: Icons.edit,
-                              onPressed: (context) async {
-                                await Navigator.of(context).pushNamed(
-                                    Routes.addressBookAddContact,
-                                    arguments: contact);
-                                await addressBookStore.updateContactList();
-                              },
-                            ),
-                            SlidableAction(
-                              label: 'Delete',
-                              backgroundColor: Colors.red,
-                              icon: CupertinoIcons.delete,
-                              onPressed: (context) async {
-                                await showAlertDialog(context).then(
-                                    (isDelete) async {
-                                      if (isDelete) {
-                                        await addressBookStore.delete(contact: contact);
-                                        await addressBookStore.updateContactList();
-                                      }
-                                    });
-                              },
-                            ),
-                          ]
-                        ),
+                        endActionPane:
+                            ActionPane(motion: const DrawerMotion(), children: [
+                          SlidableAction(
+                            label: 'Edit',
+                            backgroundColor: Colors.blue,
+                            icon: Icons.edit,
+                            onPressed: (context) async {
+                              await Navigator.of(context).pushNamed(
+                                  Routes.addressBookAddContact,
+                                  arguments: contact);
+                              await addressBookStore.updateContactList();
+                            },
+                          ),
+                          SlidableAction(
+                            label: 'Delete',
+                            backgroundColor: Colors.red,
+                            icon: CupertinoIcons.delete,
+                            onPressed: (context) async {
+                              await showAlertDialog(context)
+                                  .then((isDelete) async {
+                                if (isDelete) {
+                                  await addressBookStore.delete(
+                                      contact: contact);
+                                  await addressBookStore.updateContactList();
+                                }
+                              });
+                            },
+                          ),
+                        ]),
                         startActionPane: ActionPane(
                           motion: const DrawerMotion(),
                           dismissible: DismissiblePane(
@@ -168,8 +170,8 @@ class AddressBookPage extends BasePage {
 
   Future<bool> showAlertDialog(BuildContext context) async {
     var result = false;
-    await showConfirmOxenDialog(context, tr(context).remove_contact,
-        tr(context).remove_contact_confirm,
+    await showConfirmOxenDialog(
+        context, tr(context).remove_contact, tr(context).remove_contact_confirm,
         onDismiss: (context) => Navigator.pop(context, false),
         onConfirm: (context) {
           result = true;

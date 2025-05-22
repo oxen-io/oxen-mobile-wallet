@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:oxen_wallet/palette.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton(
@@ -24,11 +25,11 @@ class PrimaryButton extends StatelessWidget {
         minWidth: double.infinity,
         height: 56.0,
         child: TextButton(
-          onPressed: isDisabled
-              ? onDisabledPressed
-              : onPressed,
+          onPressed: isDisabled ? onDisabledPressed : onPressed,
           style: TextButton.styleFrom(
-              primary: isDisabled ? Colors.transparent : color ?? OxenPalette.tealWithOpacity,
+              foregroundColor: isDisabled
+                  ? Colors.transparent
+                  : color ?? OxenPalette.tealWithOpacity,
               shape: RoundedRectangleBorder(
                   side: BorderSide(color: borderColor ?? OxenPalette.teal),
                   borderRadius: BorderRadius.circular(10.0))),
@@ -66,7 +67,7 @@ class LoadingPrimaryButton extends StatelessWidget {
         child: TextButton(
           onPressed: (isLoading || isDisabled) ? null : onPressed,
           style: TextButton.styleFrom(
-              primary: color ?? OxenPalette.tealWithOpacity,
+              foregroundColor: color ?? OxenPalette.tealWithOpacity,
               shape: RoundedRectangleBorder(
                   side: BorderSide(color: borderColor ?? OxenPalette.teal),
                   borderRadius: BorderRadius.circular(10.0))),
@@ -107,7 +108,7 @@ class PrimaryIconButton extends StatelessWidget {
         child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-              primary: color ?? OxenPalette.tealWithOpacity,
+              foregroundColor: color ?? OxenPalette.tealWithOpacity,
               shape: RoundedRectangleBorder(
                   side: BorderSide(color: borderColor ?? OxenPalette.teal),
                   borderRadius: BorderRadius.circular(10.0))),
@@ -131,8 +132,11 @@ class PrimaryIconButton extends StatelessWidget {
                   child: Text(text,
                       style: TextStyle(
                           fontSize: 16.0,
-                          color:
-                              Theme.of(context).primaryTextTheme.button?.color ?? OxenPalette.tealWithOpacity)),
+                          color: Theme.of(context)
+                                  .primaryTextTheme
+                                  .button
+                                  ?.color ??
+                              OxenPalette.tealWithOpacity)),
                 ),
               )
             ],
@@ -165,7 +169,7 @@ class PrimaryImageButton extends StatelessWidget {
         child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
-              primary: color,
+              foregroundColor: color,
               shape: RoundedRectangleBorder(
                   side: BorderSide(color: borderColor),
                   borderRadius: BorderRadius.circular(12.0))),

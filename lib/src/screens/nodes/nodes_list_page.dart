@@ -6,6 +6,7 @@ import 'package:oxen_wallet/palette.dart';
 import 'package:oxen_wallet/routes.dart';
 import 'package:oxen_wallet/src/screens/base_page.dart';
 import 'package:oxen_wallet/src/screens/nodes/node_indicator.dart';
+import 'package:oxen_wallet/src/screens/text_theme_extensions.dart';
 import 'package:oxen_wallet/src/stores/node_list/node_list_store.dart';
 import 'package:oxen_wallet/src/stores/settings/settings_store.dart';
 import 'package:oxen_wallet/src/widgets/oxen_dialog.dart';
@@ -51,8 +52,7 @@ class NodeListPage extends BasePage {
             width: 28.0,
             height: 28.0,
             decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Theme.of(context).selectedRowColor),
+                shape: BoxShape.circle, color: OxenPalette.tealWithOpacity),
             child: Stack(
               alignment: Alignment.center,
               children: <Widget>[
@@ -87,8 +87,8 @@ class NodeListPageBodyState extends State<NodeListPageBody> {
     final nodeList = Provider.of<NodeListStore>(context);
     final settings = Provider.of<SettingsStore>(context);
 
-    final currentColor = Theme.of(context).selectedRowColor;
-    final notCurrentColor = Theme.of(context).backgroundColor;
+    final currentColor = OxenPalette.tealWithOpacity;
+    final notCurrentColor = PaletteDark.darkThemeBackgroundDark;
 
     return Container(
       padding: EdgeInsets.only(bottom: 20.0),
