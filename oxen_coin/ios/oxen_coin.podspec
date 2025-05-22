@@ -29,7 +29,7 @@ A new flutter plugin project.
   s.subspec 'Oxen' do |oxen|
     oxen.preserve_paths = 'External/ios/oxen/include/*.h'
     oxen.vendored_libraries = 'External/ios/oxen/lib/*.a'
-    oxen.libraries = 'wallet_api'
+    oxen.libraries = 'wallet_merged'
     oxen.xcconfig = {}
   end
 

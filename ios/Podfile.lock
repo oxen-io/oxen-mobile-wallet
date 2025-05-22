@@ -6,10 +6,12 @@ PODS:
   - devicelocale (0.0.1):
     - Flutter
   - Flutter (1.0.0)
-  - flutter_secure_storage (3.3.1):
+  - flutter_secure_storage_darwin (10.0.0):
     - Flutter
-  - local_auth_ios (0.0.1):
+    - FlutterMacOS
+  - local_auth_darwin (0.0.1):
     - Flutter
+    - FlutterMacOS
   - MTBBarcodeScanner (5.0.11)
   - oxen_coin (0.0.1):
     - Flutter
@@ -18,12 +20,14 @@ PODS:
     - Flutter
   - package_info_plus (0.4.5):
     - Flutter
-  - path_provider_ios (0.0.1):
+  - path_provider_foundation (0.0.1):
     - Flutter
+    - FlutterMacOS
   - share_plus (0.0.1):
     - Flutter
-  - shared_preferences_ios (0.0.1):
+  - shared_preferences_foundation (0.0.1):
     - Flutter
+    - FlutterMacOS
   - SwiftProtobuf (1.15.0)
   - url_launcher_ios (0.0.1):
     - Flutter
@@ -32,13 +36,13 @@ DEPENDENCIES:
   - barcode_scan2 (from `.symlinks/plugins/barcode_scan2/ios`)
   - devicelocale (from `.symlinks/plugins/devicelocale/ios`)
   - Flutter (from `Flutter`)
-  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
-  - local_auth_ios (from `.symlinks/plugins/local_auth_ios/ios`)
+  - flutter_secure_storage_darwin (from `.symlinks/plugins/flutter_secure_storage_darwin/darwin`)
+  - local_auth_darwin (from `.symlinks/plugins/local_auth_darwin/darwin`)
   - oxen_coin (from `.symlinks/plugins/oxen_coin/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
-  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
@@ -53,38 +57,38 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/devicelocale/ios"
   Flutter:
     :path: Flutter
-  flutter_secure_storage:
-    :path: ".symlinks/plugins/flutter_secure_storage/ios"
-  local_auth_ios:
-    :path: ".symlinks/plugins/local_auth_ios/ios"
+  flutter_secure_storage_darwin:
+    :path: ".symlinks/plugins/flutter_secure_storage_darwin/darwin"
+  local_auth_darwin:
+    :path: ".symlinks/plugins/local_auth_darwin/darwin"
   oxen_coin:
     :path: ".symlinks/plugins/oxen_coin/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
-  path_provider_ios:
-    :path: ".symlinks/plugins/path_provider_ios/ios"
+  path_provider_foundation:
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   share_plus:
     :path: ".symlinks/plugins/share_plus/ios"
-  shared_preferences_ios:
-    :path: ".symlinks/plugins/shared_preferences_ios/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  barcode_scan2: 0af2bb63c81b4565aab6cd78278e4c0fa136dbb0
-  devicelocale: b22617f40038496deffba44747101255cee005b0
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
-  local_auth_ios: 0d333dde7780f669e66f19d2ff6005f3ea84008d
+  barcode_scan2: f80517f040989095c9b5067be77649bf6114442c
+  devicelocale: bd64aa714485a8afdaded0892c1e7d5b7f680cf8
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_secure_storage_darwin: ce237a8775b39723566dc72571190a3769d70468
+  local_auth_darwin: 553ce4f9b16d3fdfeafce9cf042e7c9f77c1c391
   MTBBarcodeScanner: f453b33c4b7dfe545d8c6484ed744d55671788cb
-  oxen_coin: a5a9e565bab069b0d5670ecb7bfd5d605b1c055a
-  package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
-  path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
-  share_plus: 056a1e8ac890df3e33cb503afffaf1e9b4fbae68
-  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  oxen_coin: 01a6bc72256d27a9ee64216dade1b3e25d98bb18
+  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
+  path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
+  share_plus: 50da8cb520a8f0f65671c6c6a99b3617ed10a58a
+  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
   SwiftProtobuf: 3320217e9d8fb75f36b40282e78c482640fd75dd
-  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
+  url_launcher_ios: 694010445543906933d732453a59da0a173ae33d
 
 PODFILE CHECKSUM: f10c0438b63bc24e6bbc207956dc27d16c4408f2
 
-COCOAPODS: 1.11.3
+COCOAPODS: 1.16.2
